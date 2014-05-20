@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Playlist(models.Model):
     title = models.CharField(max_length=200)
-    created = models.DateTimeField(editable=False)
+    created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField()
     user = models.ForeignKey(User)
 

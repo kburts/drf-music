@@ -10,6 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'groups')
 
+
 class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -22,4 +23,6 @@ class PlaylistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Playlist
-        fields = ('title', 'user', 'songs' 'id')
+        fields = ('title', 'user', 'songs', 'id')
+
+
