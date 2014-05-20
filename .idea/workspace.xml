@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881ae992-d8cc-42d5-acec-42e1f13a2625" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/music/playlist/urls.py" />
-      <change type="DELETED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\migrations\__init__.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/models.py" afterPath="$PROJECT_DIR$/music/playlist/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/serializers.py" afterPath="$PROJECT_DIR$/music/playlist/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/music/urls.py" afterPath="$PROJECT_DIR$/music/music/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/views.py" afterPath="$PROJECT_DIR$/music/playlist/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="drf-music.iws" />
@@ -43,7 +39,7 @@
       <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/music/playlist/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="42" selection-start="455" selection-end="455" vertical-scroll-proportion="0.33156028" vertical-offset="102" max-vertical-offset="680">
+            <state line="22" column="46" selection-start="679" selection-end="679" vertical-scroll-proportion="0.66312057" vertical-offset="0" max-vertical-offset="714">
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -54,7 +50,7 @@
       <file leaf-file-name="serializers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/playlist/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="41" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
+            <state line="12" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -132,8 +128,8 @@
         <option value="$PROJECT_DIR$/music/music/urls.py" />
         <option value="$PROJECT_DIR$/music/playlist/views.py" />
         <option value="$PROJECT_DIR$/music/playlist/urls.py" />
-        <option value="$PROJECT_DIR$/music/playlist/models.py" />
         <option value="$PROJECT_DIR$/music/playlist/serializers.py" />
+        <option value="$PROJECT_DIR$/music/playlist/models.py" />
       </list>
     </option>
   </component>
@@ -406,23 +402,27 @@
       <created>1400485757818</created>
       <updated>1400485757818</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="REST API is now working.">
+      <created>1400550754220</created>
+      <updated>1400550754220</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1040" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.49945828" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.5005417" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -447,7 +447,8 @@
     </option>
     <MESSAGE value="Added serializers from django_playlist repo." />
     <MESSAGE value="Updated models to include FK's to users and updated Playlist model to include creation date and modified date which are updated with its save function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated models to include FK's to users and updated Playlist model to include creation date and modified date which are updated with its save function." />
+    <MESSAGE value="REST API is now working." />
+    <option name="LAST_COMMIT_MESSAGE" value="REST API is now working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -517,7 +518,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music/playlist/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="41" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
+        <state line="12" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -526,7 +527,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music/playlist/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="42" selection-start="455" selection-end="455" vertical-scroll-proportion="0.33156028" vertical-offset="102" max-vertical-offset="680">
+        <state line="22" column="46" selection-start="679" selection-end="679" vertical-scroll-proportion="0.66312057" vertical-offset="0" max-vertical-offset="714">
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
