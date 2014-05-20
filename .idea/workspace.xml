@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881ae992-d8cc-42d5-acec-42e1f13a2625" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/music/playlist/permissions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/models.py" afterPath="$PROJECT_DIR$/music/playlist/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/serializers.py" afterPath="$PROJECT_DIR$/music/playlist/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/music/urls.py" afterPath="$PROJECT_DIR$/music/music/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/urls.py" afterPath="$PROJECT_DIR$/music/playlist/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/playlist/views.py" afterPath="$PROJECT_DIR$/music/playlist/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="drf-music.iws" />
@@ -36,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/playlist/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="46" selection-start="679" selection-end="679" vertical-scroll-proportion="0.66312057" vertical-offset="0" max-vertical-offset="714">
+            <state line="18" column="43" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="714">
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -47,10 +51,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="permissions.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/music/playlist/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="39" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="serializers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/playlist/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
+            <state line="24" column="45" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="612">
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -70,29 +83,18 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/playlist/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="44" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+            <state line="37" column="37" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="918">
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/music/playlist/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="1" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/music/music/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+            <state line="14" column="1" selection-start="526" selection-end="526" vertical-scroll-proportion="0.4219858" vertical-offset="0" max-vertical-offset="564">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -125,16 +127,18 @@
         <option value="$PROJECT_DIR$/music/music/settings.py" />
         <option value="$PROJECT_DIR$/music/playlist/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/music/playlist/migrations/0002_song.py" />
+        <option value="$PROJECT_DIR$/music/playlist/permissions.py" />
         <option value="$PROJECT_DIR$/music/music/urls.py" />
+        <option value="$PROJECT_DIR$/music/playlist/models.py" />
+        <option value="$PROJECT_DIR$/music/playlist/serializers.py" />
         <option value="$PROJECT_DIR$/music/playlist/views.py" />
         <option value="$PROJECT_DIR$/music/playlist/urls.py" />
-        <option value="$PROJECT_DIR$/music/playlist/serializers.py" />
-        <option value="$PROJECT_DIR$/music/playlist/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
+    <option name="x" value="855" />
+    <option name="y" value="3" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -406,18 +410,22 @@
       <created>1400550754220</created>
       <updated>1400550754220</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TODO for tomorrow: change the mode save function to a view pre_save function to add the owner and pub/update time">
+      <created>1400562078061</created>
+      <updated>1400562078061</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
-    <editor active="false" />
+    <frame x="855" y="3" width="960" height="1040" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.49945828" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.49945828" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -448,7 +456,8 @@
     <MESSAGE value="Added serializers from django_playlist repo." />
     <MESSAGE value="Updated models to include FK's to users and updated Playlist model to include creation date and modified date which are updated with its save function." />
     <MESSAGE value="REST API is now working." />
-    <option name="LAST_COMMIT_MESSAGE" value="REST API is now working." />
+    <MESSAGE value="TODO for tomorrow: change the mode save function to a view pre_save function to add the owner and pub/update time" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO for tomorrow: change the mode save function to a view pre_save function to add the owner and pub/update time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -489,9 +498,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/music/playlist/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="39" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music/playlist/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="43" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="714">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music/playlist/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="45" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="612">
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/music/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+        <state line="4" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
@@ -500,36 +534,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music/playlist/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="44" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/music/playlist/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="1" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/music/playlist/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="578">
+        <state line="37" column="37" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="918">
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music/playlist/models.py">
+    <entry file="file://$PROJECT_DIR$/music/playlist/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="46" selection-start="679" selection-end="679" vertical-scroll-proportion="0.66312057" vertical-offset="0" max-vertical-offset="714">
+        <state line="14" column="1" selection-start="526" selection-end="526" vertical-scroll-proportion="0.4219858" vertical-offset="0" max-vertical-offset="564">
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
