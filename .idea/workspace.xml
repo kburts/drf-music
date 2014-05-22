@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881ae992-d8cc-42d5-acec-42e1f13a2625" name="Default" comment="Added UserList and UserDetail views">
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\__init__.py" afterPath="$PROJECT_DIR$/music/api/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\admin.py" afterPath="$PROJECT_DIR$/music/api/admin.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\models.py" afterPath="$PROJECT_DIR$/music/api/models.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\permissions.py" afterPath="$PROJECT_DIR$/music/api/permissions.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\serializers.py" afterPath="$PROJECT_DIR$/music/api/serializers.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\tests.py" afterPath="$PROJECT_DIR$/music/api/tests.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\urls.py" afterPath="$PROJECT_DIR$/music/api/urls.py" />
-      <change type="MOVED" beforePath="C:\Users\Kevin\PycharmProjects\drf-music\music\playlist\views.py" afterPath="$PROJECT_DIR$/music/api/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/music/settings.py" afterPath="$PROJECT_DIR$/music/music/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/music/urls.py" afterPath="$PROJECT_DIR$/music/music/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music/api/urls.py" afterPath="$PROJECT_DIR$/music/api/urls.py" />
     </list>
     <ignored path="drf-music.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/music/music/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="15" selection-start="333" selection-end="333" vertical-scroll-proportion="0.30852994" vertical-offset="0" max-vertical-offset="551">
+            <state line="14" column="0" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -106,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/music/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="1" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+            <state line="19" column="26" selection-start="697" selection-end="697" vertical-scroll-proportion="0.572695" vertical-offset="0" max-vertical-offset="564">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -148,13 +138,14 @@
         <option value="$PROJECT_DIR$/music/playlist/urls.py" />
         <option value="$PROJECT_DIR$/music/music/settings.py" />
         <option value="$PROJECT_DIR$/music/music/urls.py" />
+        <option value="$PROJECT_DIR$/music/api/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="735" />
-    <option name="y" value="28" />
-    <option name="width" value="960" />
+    <option name="x" value="829" />
+    <option name="y" value="3" />
+    <option name="width" value="1043" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -231,6 +222,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="music" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drf-music" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drf-music" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="music" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,19 +428,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="735" y="28" width="960" height="1040" extended-state="0" />
+    <frame x="829" y="3" width="1043" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.49945828" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22862823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.5005417" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -527,15 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="1" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music/music/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="0" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.0" vertical-offset="983" max-vertical-offset="1547">
@@ -545,7 +545,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="15" selection-start="333" selection-end="333" vertical-scroll-proportion="0.30852994" vertical-offset="0" max-vertical-offset="551">
+        <state line="14" column="0" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="697" selection-end="697" vertical-scroll-proportion="0.572695" vertical-offset="0" max-vertical-offset="564">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
