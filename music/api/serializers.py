@@ -22,7 +22,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        #fields = ('username', 'playlists', 'songs')
+        fields = ('username', 'playlists', 'songs')
 
 
 class SongSerializer(serializers.ModelSerializer):
@@ -31,7 +31,7 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = ('name', 'url', 'playlist', 'added_by', 'id')
+        fields = ('name', 'artist', 'url', 'playlist', 'added_by', 'id')
 
 
 class PlaylistSerializer(serializers.ModelSerializer):
