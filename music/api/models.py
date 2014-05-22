@@ -25,7 +25,7 @@ class Playlist(models.Model):
 
 
 class Song(models.Model):
-    playlist = models.ForeignKey(Playlist, related_name='songs')
+    playlist = models.ManyToManyField(Playlist, related_name='songs')
 
     name = models.CharField(max_length=200)
     artist = models.CharField(max_length=200)
