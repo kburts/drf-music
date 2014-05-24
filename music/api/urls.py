@@ -4,7 +4,7 @@ import views
 
 user_urls = patterns('',
     url(r'/$', views.UserList.as_view(), name='user-list'),
-    url(r'^/(?P<username>[a-zA-Z0-9@.+_-]+)/$', views.UserDetail.as_view(), name='user-detail'),
+    url(r'^/(?P<username>[0-9a-zA-Z_-]+)$', views.UserDetail.as_view(), name='user-detail'),
 )
 
 playlist_urls = patterns('',

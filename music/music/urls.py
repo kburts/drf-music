@@ -1,8 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-# Router is used for the User viewset. Maybe change to GCBV later for users for consistancy
-
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     # Examples:
@@ -11,4 +10,6 @@ urlpatterns = patterns('',
     url(r'^api/', include('api.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', TemplateView.as_view(template_name='basic.html'))
 )
