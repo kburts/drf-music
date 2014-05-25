@@ -1,4 +1,6 @@
 import datetime
+import urlparse
+
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -35,3 +37,10 @@ class Song(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_youtube_id(self):
+        """
+        Returns the 11 character lookup code for a youtube URL
+        Ex. https://www.youtube.com/watch?v=coYqrXsDPdU >>> coYqrXsDPdU
+        """
+        return urlparse.urlparse(self.url).query[2:]
