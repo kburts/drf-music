@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block ng_app %}app.playlist{% endblock %}
+
+<div class="container" ng-controller="{% block ng_controller %}AppController{% endblock %}">
+{% verbatim %}
+    <p>Hello, Angular! world</p>
+    <div ng-repeat="playlist in playlists">
+        <p><b>{{playlist.title}}</b></p>
+        <div ng-repeat="song in playlist.songs">
+            <p>{{song.name}}</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Small Footer Font</p>
+    </div>
+{% endverbatim %}
+</div>
