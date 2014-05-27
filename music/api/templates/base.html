@@ -5,24 +5,39 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Django Player</title>
 </head>
 
-<body ng-app="{% block ng_app%}example.app.basic{% endblock %}">
-<div class="container" ng-controller="{% block ng_controller %}PlaylistCtrl{% endblock %}">
+<body ng-app="{% block ng_app%}example.app.basic{% endblock %}" ng-controller="{% block ng_controller %}PlaylistCtrl{% endblock %}">
+<div class="container">
     <nav>
         <div class="row">
-            <div class="col-sm-5"><a href="/">Logo</a></div>
-            <div class="col-sm-2"><input type="text" class="form-inline" placeholder="Text input"></p></div>
+            <div class="col-sm-5"><a href="/">Logo</a> - {% verbatim %} {{ "current song: " + currentsong }} {% endverbatim %}</div>
+            <div class="col-sm-2"><input type="text" class="form-inline" placeholder="Search p:/s:"></div>
             <div class="col-sm-5" style="text-align: right">Welcolme, Username({{Username}})</div>
         </div>
         {% verbatim %} 
         {{ hello }}
-        <div ng-repeat="playlist in playlists">
-            {{ playlist }}
+        {{ shared }}
+        {{ songs }}
+        <div ng-repeat="song in songs.songs">
+                    <p>Songs:</p>
+                    {{ song.name }}
         </div>
+
          {% endverbatim %}
     </nav>
     <div class="container" id="main-body">
+        <div ng-repeat="song in songs.songs">
+            {% verbatim %}
+            <div class="row">
+                <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="playSong()"></button></div>
+                <div class="col-sm-10"><p>{{ song.name }} - {{ song.url }}</p></div>
+                <div class="col-sm-1"><i class="fa fa-chevron-circle-down"></i></div>
+            </div>
+            {% endverbatim %}
+        </div>
+
         <table class="table table-hover">
             <tr>
                 <td><i class="fa fa-play fa-border"></i></td>
@@ -77,42 +92,11 @@
             <div class="col-sm-4"><a href="/songs">Songs</a></div>    
         </div>
     </div>
+
+    <div class="row" my-youtube code="coYqrXsDPdU"></div>
+    <div class="row" id="player"></div>
 </div>
 
-
-<div class="row" id="player"></div>
-
-<script src="http://www.youtube.com/player_api"></script>
-
-<script>
-    
-    // create youtube player
-    var player;
-    function onYouTubePlayerAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: '',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-    }
-
-    // autoplay video
-    function onPlayerReady(event) {
-        event.target.playVideo();
-    }
-
-    // when video ends
-    function onPlayerStateChange(event) {        
-        if(event.data === 0) {            
-            alert('done');
-        }
-    }
-    
-</script>
 
 
 {% block js %}

@@ -10,10 +10,10 @@ class SongSerializerSimple(serializers.ModelSerializer):
     Dumbed down version of SongSerializer to return only Name and URL
     For use in views which need to be smaller than the whole SongSerializer
     """
-    ytid = serializers.Field(source='get_youtube_id') #Youtube ID to be used in the embedded player for song lookup
+    yt_id = serializers.Field(source='get_youtube_id') #Youtube ID to be used in the embedded player for song lookup
     class Meta:
         model = Song
-        fields = ('name', 'url', 'ytid')
+        fields = ('name', 'url', 'yt_id')
         read_only_fields = ('name', 'url')
 
 
