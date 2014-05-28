@@ -35,9 +35,9 @@ app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (
 
     onYoutubeReady = (event) ->
         $log.info "YouTube Player is ready"
-        youtube.player.cueVideoById 'pMkYn1SQSs4'
-        youtube.videoId = 'pMkYn1SQSs4'
-        youtube.videoTitle = "Good Eats - S09E10P01 - Great Balls O' Meat"
+        youtube.player.cueVideoById '0vyuFj__YOs'
+        youtube.videoId = '0vyuFj__YOs'
+        youtube.videoTitle = "Elaina's Theme"
 
     @bindPlayer = (elementId) ->
         $log.info "Binding to " + elementId

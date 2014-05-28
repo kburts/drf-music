@@ -11,7 +11,7 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$s
     $scope.currentsong = ''
 
     $scope.launch = ->
-        YoutubePlayerService.launchPlayer('pMkYn1SQSs4', "Good Eats - S09E10P01 - Great Balls O' Meat")
+        YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme")
 
     $scope.playSong = ->
         Queue.setQueue(this.song.name)

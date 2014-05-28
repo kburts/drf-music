@@ -1,7 +1,7 @@
 $font-stack: Helvetica, sans-serif;
 $font-weight: bold;
 $bg-color: #FCC;
-$body-height: 95%; // This needs to be tested a little more later.
+$body-height: 100%; // This needs to be tested a little more later.
 
 body {
 	font: 150% $font-stack;
@@ -23,4 +23,8 @@ nav {
 	border:2px solid black;
 	border-bottom: 0px;
 	box-shadow: 0px 0px 5px #222222;
+}
+
+#player {
+	display: none;
 }
