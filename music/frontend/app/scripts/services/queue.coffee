@@ -7,4 +7,4 @@ app.factory 'Queue', ->
     queue = []
 
     getQueue: -> queue
-    setQueue: (new_queue) -> queue[0] = new_queue
+    setQueue: (new_queue) -> queue = new_queue

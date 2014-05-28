@@ -10,13 +10,13 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$s
     $scope.youtube = YoutubePlayerService.getYoutube();
     $scope.currentsong = ''
 
-    $log.info('pre-pre-Launched id')
     $scope.launch = ->
-        $log.info('pre-Launched id')
         YoutubePlayerService.launchPlayer('pMkYn1SQSs4', "Good Eats - S09E10P01 - Great Balls O' Meat")
 
     $scope.playSong = ->
         Queue.setQueue(this.song.name)
         $scope.currentsong = Queue.getQueue()
         $scope.currentsong.id = this.song.url
+
+        YoutubePlayerService.launchPlayer(this.song.yt_id, this.song.name)
 ]

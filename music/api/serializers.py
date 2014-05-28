@@ -32,7 +32,8 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = ('name', 'artist', 'url', 'playlist', 'added_by', 'id')
+        # Artist can be added later if needbe
+        fields = ('name', 'url', 'playlist', 'added_by', 'id')
 
 
 class PlaylistSerializer(serializers.ModelSerializer):
