@@ -8,7 +8,17 @@ Learn AngularJS (and JavaScript,) by writing an application which uses it as a f
 Requirements:
 -----
     Currently working with django1.7
-    pip install -r requirements.txt
+    npm/node
+    grunt
+
+Install/Run:
+-----
+    pip install -r requirements.txt (django1.7b4 might have to be installed fron the website!)
+    python manage.py runserver
+
+    cd frontend
+    npm install
+    grunt serve
 
 License (MIT)
 -----
