@@ -11,10 +11,16 @@ app = angular.module 'playlistApp', [
 
 app.config ($routeProvider) ->
   $routeProvider
-    .when '/',
+    .when '/yo',
       templateUrl: 'views/main.html'
       controller: 'MainCtrl'
+    .when '/',
+      templateUrl: 'views/PlaylistListView.html'
+      controller: 'PlaylistListCtrl'
     .when '/play',
+      templateUrl: 'views/PlaylistListView.html'
+      controller: 'PlaylistListCtrl'
+    .when '/play/:playlistId',
       templateUrl: 'views/PlaylistView.html'
       controller: 'PlaylistCtrl'
     .otherwise

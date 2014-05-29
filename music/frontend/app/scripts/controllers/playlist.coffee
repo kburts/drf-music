@@ -2,10 +2,10 @@
 
 app = angular.module('playlistApp')
 
-app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$scope', '$http', '$log', (Playlist, YoutubePlayerService, Queue, $scope, $http, $log) ->
+app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$routeParams', '$scope', '$log', (Playlist, YoutubePlayerService, Queue, $routeParams, $scope, $log) ->
     #Init
-    $scope.hello = "hello!"
-    $scope.songs = Playlist.query(id: 1)
+    $scope.hello = 'hello'
+    $scope.songs = Playlist.query(id: $routeParams.playlistId)
 
     $scope.youtube = YoutubePlayerService.getYoutube();
     $scope.currentsong = ''
@@ -19,4 +19,8 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$s
         $scope.currentsong.id = this.song.url
 
         YoutubePlayerService.launchPlayer(this.song.yt_id, this.song.name)
+]
+
+app.controller 'PlaylistListCtrl', ['PlaylistList', '$scope', (PlaylistList, $scope) ->
+    $scope.playlists = PlaylistList.query()
 ]
