@@ -9,7 +9,7 @@ app = angular.module 'playlistApp', [
   ]
 
 
-app.config ($routeProvider) ->
+app.config ($routeProvider, $locationProvider) ->
   $routeProvider
     .when '/yo',
       templateUrl: 'views/main.html'
@@ -21,8 +21,13 @@ app.config ($routeProvider) ->
       templateUrl: 'views/PlaylistListView.html'
       controller: 'PlaylistListCtrl'
     .when '/play/:playlistId',
-      templateUrl: 'views/PlaylistView.html'
+      templateUrl: '/views/PlaylistView.html'
       controller: 'PlaylistCtrl'
+    .when '/songs',
+      templateUrl: 'views/SongListView.html'
+      controller: 'SongListCtrl'
     .otherwise
-      redirectTo: '/404'
+      redirectTo: '/play/1'
 
+    # use the HTML5 History API
+    # $locationProvider.html5Mode(true);

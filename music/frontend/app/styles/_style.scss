@@ -1,6 +1,6 @@
 $font-stack: Helvetica, sans-serif;
 $font-weight: bold;
-$bg-color: #FCC;
+$bg-color: #EEE;
 $body-height: 100%; // This needs to be tested a little more later.
 
 body {
@@ -14,11 +14,6 @@ nav {
 	margin-bottom: 45px;
 }
 
-.footer {
-	font-size: small;
-	text-align: center;
-}
-
 #main-body {
 	height: $body-height;
 	padding-top: 10px;
@@ -29,4 +24,21 @@ nav {
 
 #player {
 	display: none;
+}
+
+.playlist-details {
+	font: 100% $font-stack;
+    max-height: 100px;
+    transition: .8s;
+    //overflow: hidden;
+}
+
+.playlist-details.hidden {
+	// TBD
+    max-height: 0;
+}
+
+.footer {
+	font-size: small;
+	text-align: center;
 }

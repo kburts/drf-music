@@ -11,5 +11,9 @@ app.factory 'PlaylistList', ['$resource', ($resource) ->
 ]
 
 app.factory 'Song', ['$resource', ($resource) ->
-    $resource 'http://localhost:8000/api/song/:id', id: '@id'
+    $resource 'http://localhost:8000/api/song/:id/', id: '@id'
+]
+
+app.factory 'SongList', ['$resource', ($resource) ->
+    $resource 'http://localhost:8000/api/song/'
 ]

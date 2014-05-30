@@ -2,7 +2,7 @@
 
     <div class="row">
         <nav>
-            <div class="col-sm-5"><a href="/">Logo</a> - {{ "current song: " + hello }}</div>
+            <div class="col-sm-5"><a href="/">Logo</a> - {{ "current song: " + currentsong }}</div>
             <div class="col-sm-2"><input type="text" class="form-inline" placeholder="Filter" ng-model="songFilter"></div>
             <div class="col-sm-5" style="text-align: right">Welcolme, Username({{Username}})</div>
         </nav>
@@ -14,7 +14,26 @@
             <div class="row">
                 <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="playSong()"></button></div>
                 <div class="col-sm-10"><p>{{ song.name }}</p></div>
-                <div class="col-sm-1"><button class="fa fa-chevron-circle-down fa-border"></button></div>
+                <div class="col-sm-1"><button class="fa fa-chevron-circle-down fa-border" ng-click="showDetails = ! showDetails"></button></div>
+            </div>
+            <div class="row" ng-class="{ 'hidden': ! showDetails }">
+                <div class="playlist-details">
+                    <p>Hello!</p>
+                    <div class="col-sm-4">
+                        <p>Playlists used in:</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>Meta Data:</p>
+                        <p>Song: {{song.name}}</p>
+                        <p>Artist: </p>
+                        <p>Genre: </p>
+                        <p>Release Date: </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <a class="btn btn-danger">Remove</a>
+                        <a class="btn btn-warning">Change</a>
+                    </div>                    
+                </div>
             </div>
         </div>
 <!--
