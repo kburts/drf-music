@@ -21,18 +21,17 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
         $scope.queue = Queue.getQueue()
         $log.log(Queue.getQueue())
 
-        #YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0])
         $scope.play()
         return
 
     $scope.play = ->
-        $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1])
-        $log.log(typeof $scope.queue[0])
         if typeof $scope.queue[0] is 'object'
+            $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1])
             YoutubePlayerService.launchPlayer($scope.queue[0][1], $scope.queue[0][0])
             $log.log("Playing song from array queue")
         # for playing a single song with the playSong function.
         else if typeof $scope.queue[0] is 'string'
+            $log.log("Playing a song" + $scope.queue[0] + $scope.queue[1])
             YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0])
             $log.log("Playing song from single song queue")
         
@@ -56,6 +55,7 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
         Queue.shuffleQueue()
         $scope.queue = Queue.getQueue()
         $log.log($scope.queue)
+        $scope.play()
         return
 ]
 

@@ -32,6 +32,17 @@ app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (
         youtube.videoId = '0vyuFj__YOs'
         youtube.videoTitle = "Elaina's Theme"
 
+    onYoutubeStateChange = (event) ->
+        if event.data is YT.PlayerState.PLAYING
+            $log.info("State: Playing!")
+            youtube.state = 'playing'
+        if event.data is YT.PlayerState.ENDED
+            youtube.state = 'ended'
+            $log.info("Song ended, going to next one!")
+
+        $rootScope.$apply()
+        return
+
     @bindPlayer = (elementId) ->
         $log.info "Binding to " + elementId
         youtube.playerId = elementId
@@ -47,7 +58,7 @@ app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (
 
             events:
               onReady: onYoutubeReady
-              #onStateChange: onYoutubeStateChange
+              onStateChange: onYoutubeStateChange
         )
 
     @loadPlayer = ->
