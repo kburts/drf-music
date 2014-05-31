@@ -10,11 +10,19 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
     $scope.currentsong = {}
     $scope.queue = []
 
+    ## Check to see if the song ended. If it did, play the next song
+    $scope.$on('event', (event, data) -> 
+        if data is 'ended'
+            $scope.playNext()
+        )
+
     $scope.launch = ->
         YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme")
         $scope.youtube = YoutubePlayerService.getYoutube();
 
     $scope.playSong = ->
+        Queue.clearQueue()
+        Queue.addToEndQueue([this.song.name, this.song.yt_id])
         Queue.setQueue([this.song.name, this.song.yt_id])
         #$scope.currentsong.name = Queue.getQueue()[0]
         #$scope.currentsong.id = Queue.getQueue()[1]
@@ -34,8 +42,6 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
             $log.log("Playing a song" + $scope.queue[0] + $scope.queue[1])
             YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0])
             $log.log("Playing song from single song queue")
-        
-
 
     $scope.playAll = ->
         Queue.clearQueue()
@@ -57,6 +63,13 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
         $log.log($scope.queue)
         $scope.play()
         return
+
+    $scope.playNext = ->
+        if Queue.length <= 1
+            $log.log("Playlist done!")
+        else
+            Queue = $scope.queue.shift()
+            $scope.play()
 ]
 
 

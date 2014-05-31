@@ -6,6 +6,7 @@ app = angular.module('playlistApp')
 app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (Queue, $window, $rootScope, $log) ->
     service = this
     queue = []
+    events = ""
 
     youtube = {
         ready: false,
@@ -36,10 +37,11 @@ app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (
         if event.data is YT.PlayerState.PLAYING
             $log.info("State: Playing!")
             youtube.state = 'playing'
+            $rootScope.$broadcast('event', youtube.state)
         if event.data is YT.PlayerState.ENDED
             youtube.state = 'ended'
             $log.info("Song ended, going to next one!")
-
+            $rootScope.$broadcast('event', youtube.state)
         $rootScope.$apply()
         return
 
