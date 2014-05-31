@@ -6,7 +6,9 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
     #Init
     $scope.hello = 'hello'
     $scope.songs = Playlist.query(id: $routeParams.playlistId)
+    
     $scope.currentsong = {}
+    $scope.queue = []
 
     $scope.launch = ->
         YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme")
@@ -14,27 +16,48 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
 
     $scope.playSong = ->
         Queue.setQueue([this.song.name, this.song.yt_id])
-        $scope.currentsong.name = Queue.getQueue()[0]
-        $scope.currentsong.id = Queue.getQueue()[1]
-        console.log(Queue.getQueue())
+        #$scope.currentsong.name = Queue.getQueue()[0]
+        #$scope.currentsong.id = Queue.getQueue()[1]
+        $scope.queue = Queue.getQueue()
+        $log.log(Queue.getQueue())
 
-        YoutubePlayerService.launchPlayer($scope.currentsong.id, $scope.currentsong.name)
+        #YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0])
+        $scope.play()
         return
 
+    $scope.play = ->
+        $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1])
+        $log.log(typeof $scope.queue[0])
+        if typeof $scope.queue[0] is 'object'
+            YoutubePlayerService.launchPlayer($scope.queue[0][1], $scope.queue[0][0])
+            $log.log("Playing song from array queue")
+        # for playing a single song with the playSong function.
+        else if typeof $scope.queue[0] is 'string'
+            YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0])
+            $log.log("Playing song from single song queue")
+        
+
+
     $scope.playAll = ->
+        Queue.clearQueue()
         for i in $scope.songs.songs
             Queue.addToEndQueue([i.name, i.yt_id])
 
-        Queue.getQueue()
-        #console.log(Queue.getQueue())
+        $scope.queue = Queue.getQueue()
+        $log.log($scope.queue)
+        $scope.play()
         return
 
-    $scope.shufflePlaylist = ->
+    $scope.playShuffled = ->
+        Queue.clearQueue()
+        for i in $scope.songs.songs
+            Queue.addToEndQueue([i.name, i.yt_id])
+
         Queue.shuffleQueue()
-        #console.log(Queue.getQueue())
+        $scope.queue = Queue.getQueue()
+        $log.log($scope.queue)
         return
 ]
-
 
 
 app.controller 'PlaylistListCtrl', ['PlaylistList', '$scope', (PlaylistList, $scope) ->

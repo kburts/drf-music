@@ -7,6 +7,10 @@ app.factory 'Queue', ->
     # Queue is an array of arrays like: [[songname1, yt_id1], [songname2, yt_id2], ...]
     queue = [] # Same as = new Array(); according to the internet, but way more pythonic!
 
+    clearQueue: ->
+        queue = []
+        return
+
     addToEndQueue: (song)-> 
         queue.push(song)
         return
