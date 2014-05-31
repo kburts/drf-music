@@ -8,7 +8,7 @@ from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer, UserSerializer
 from .permissions import IsOwnerOrReadOnly
 
-# Create your views here.
+### PLAYLISTS ###
 class PlaylistList(generics.ListCreateAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
@@ -22,6 +22,7 @@ class PlaylistDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PlaylistSerializer
 
 
+### SONGS ###
 class SongList(generics.ListCreateAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
@@ -35,6 +36,7 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SongSerializer
 
 
+### USERS ###
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
