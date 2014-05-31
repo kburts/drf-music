@@ -65,10 +65,10 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
         return
 
     $scope.playNext = ->
-        if Queue.length <= 1
+        Queue = $scope.queue.shift()
+        if $scope.queue.length <= 1
             $log.log("Playlist done!")
         else
-            Queue = $scope.queue.shift()
             $scope.play()
 ]
 
