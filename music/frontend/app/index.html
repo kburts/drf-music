@@ -34,6 +34,18 @@
     </div>
 
     <!-- Add your site or application content here -->
+    <div class="container">
+
+    <div class="row">
+        <nav>
+            <div class="col-sm-5"><a href="/">Logo</a> - {{ "current song: " + currentsong.name }}</div>
+            <div class="col-sm-2">&nbsp;</div>
+            <div class="col-sm-5" style="text-align: right">Welcolme, Username({{Username}})</div>
+        </nav>
+    </div>
+
+    
+    <div class="container" id="main-body">
     <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

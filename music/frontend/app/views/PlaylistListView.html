@@ -1,15 +1,3 @@
-<div class="container">
-
-    <div class="row">
-        <nav>
-            <div class="col-sm-5"><a href="/">Logo</a> - Playlist List</div>
-            <div class="col-sm-2"><input type="text" class="form-inline" placeholder="Filter" ng-model="songFilter"></div>
-            <div class="col-sm-5" style="text-align: right">Welcolme, Username({{Username}})</div>
-        </nav>
-    </div>
-
-    
-    <div class="container" id="main-body">
         <div ng-repeat="playlist in playlists">
             <div class="row">
                 <div class="col-sm-6 col-sm-6-offset-3"><a href="#/play/{{playlist.id}}"> {{playlist.title}}</a> - {{playlist.user}}</div>

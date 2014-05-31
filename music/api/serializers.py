@@ -24,7 +24,7 @@ class SongSerializerSimple(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = ('name', 'url', 'meta_name', 'meta_artist', 'meta_genre', 'yt_id')
-        read_only_fields = ('name', 'url', 'yt_id')
+        read_only_fields = ('name', 'url')
 
 
 class PlaylistSerializer(serializers.ModelSerializer):

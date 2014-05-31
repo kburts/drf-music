@@ -6,20 +6,36 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
     #Init
     $scope.hello = 'hello'
     $scope.songs = Playlist.query(id: $routeParams.playlistId)
-
-    $scope.currentsong = ''
+    $scope.currentsong = {}
 
     $scope.launch = ->
         YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme")
         $scope.youtube = YoutubePlayerService.getYoutube();
 
     $scope.playSong = ->
-        Queue.setQueue(this.song.name)
-        $scope.currentsong = Queue.getQueue()
-        $scope.currentsong.id = this.song.url
+        Queue.setQueue([this.song.name, this.song.yt_id])
+        $scope.currentsong.name = Queue.getQueue()[0]
+        $scope.currentsong.id = Queue.getQueue()[1]
+        console.log(Queue.getQueue())
 
-        YoutubePlayerService.launchPlayer(this.song.yt_id, this.song.name)
+        YoutubePlayerService.launchPlayer($scope.currentsong.id, $scope.currentsong.name)
+        return
+
+    $scope.playAll = ->
+        for i in $scope.songs.songs
+            Queue.addToEndQueue([i.name, i.yt_id])
+
+        Queue.getQueue()
+        #console.log(Queue.getQueue())
+        return
+
+    $scope.shufflePlaylist = ->
+        Queue.shuffleQueue()
+        #console.log(Queue.getQueue())
+        return
 ]
+
+
 
 app.controller 'PlaylistListCtrl', ['PlaylistList', '$scope', (PlaylistList, $scope) ->
     $scope.playlists = PlaylistList.query()
