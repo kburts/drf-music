@@ -2,14 +2,7 @@
 
 app = angular.module('playlistApp')
 
-
-app.run ->
-    ## Boilerplate code that I've seen in everyone's version of this app.
-    tag = document.createElement('script');
-    tag.src = "http://www.youtube.com/iframe_api";
-    firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
+  
 app.service 'YoutubePlayerService', ['Queue', '$window', '$rootScope', '$log', (Queue, $window, $rootScope, $log) ->
     service = this
     queue = []

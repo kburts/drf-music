@@ -7,11 +7,11 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
     $scope.hello = 'hello'
     $scope.songs = Playlist.query(id: $routeParams.playlistId)
 
-    $scope.youtube = YoutubePlayerService.getYoutube();
     $scope.currentsong = ''
 
     $scope.launch = ->
         YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme")
+        $scope.youtube = YoutubePlayerService.getYoutube();
 
     $scope.playSong = ->
         Queue.setQueue(this.song.name)
