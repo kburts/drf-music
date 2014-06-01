@@ -45,4 +45,23 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'playlists', 'songs')
+        fields = ('username', 'playlists', 'songs',)
+
+
+
+
+
+class UserCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+        write_only_fields = ('password',)
+
+        # http://richardtier.com/2014/02/25/django-rest-framework-user-endpoint/
+    def restore_object(self, attrs, instance=None):
+        # call set_password on user object. Without this
+        # the password will be stored in plain text.
+        User = super(UserCreateSerializer, self).restore_object(attrs, instance)
+        User.set_password(attrs['password'])
+        #user.save()
+        return User

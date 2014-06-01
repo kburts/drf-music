@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 
 from .models import Playlist, Song
-from .serializers import PlaylistSerializer, SongSerializer, UserSerializer
+from .serializers import PlaylistSerializer, SongSerializer, UserSerializer, UserCreateSerializer
 from .permissions import IsOwnerOrReadOnly
 
 ### PLAYLISTS ###
@@ -42,6 +42,11 @@ class UserList(generics.ListAPIView):
     serializer_class = UserSerializer
     #permission_classes = (permissions.IsAdminUser,)
     paginate_by = 100
+
+class UserCreate(generics.CreateAPIView):
+    model = User
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = UserCreateSerializer
 
 
 class UserDetail(generics.RetrieveAPIView):

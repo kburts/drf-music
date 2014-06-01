@@ -64,9 +64,13 @@ WSGI_APPLICATION = 'music.wsgi.application'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'api.permissions.IsOwnerOrAdminOrReadOnly'
-    ]
+    'DEFAULT_PERMISSION_CLASSES': (
+        'api.permissions.IsOwnerOrAdminOrReadOnly',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
 }
 
 

@@ -1,20 +1,23 @@
 from django.conf.urls import patterns, url, include
 from rest_framework.urlpatterns import format_suffix_patterns
-import views
+from .views import PlaylistList, PlaylistDetail
+from .views import SongList, SongDetail
+from .views import UserList, UserCreate, UserDetail
 
 user_urls = patterns('',
-    url(r'/$', views.UserList.as_view(), name='user-list'),
-    url(r'^/(?P<username>[0-9a-zA-Z_-]+)$', views.UserDetail.as_view(), name='user-detail'),
+    url(r'^/register/$', UserCreate.as_view(), name='user-register'),
+    url(r'^/$', UserList.as_view(), name='user-list'),
+    #url(r'^/(?P<username>[0-9a-zA-Z_-]+)/$', UserDetail.as_view(), name='user-detail'),
 )
 
 playlist_urls = patterns('',
-    url(r'^/$', views.PlaylistList.as_view(), name='playlist-list'),
-    url(r'^/(?P<pk>[0-9]+)/$', views.PlaylistDetail.as_view(), name='playlist-detail'),
+    url(r'^/$', PlaylistList.as_view(), name='playlist-list'),
+    url(r'^/(?P<pk>[0-9]+)/$', PlaylistDetail.as_view(), name='playlist-detail'),
 )
 
 song_urls = patterns('',
-    url(r'^/$', views.SongList.as_view(), name='song-list'),
-    url(r'^/(?P<pk>[0-9]+)/$', views.SongDetail.as_view(), name='song-detail'),
+    url(r'^/$', SongList.as_view(), name='song-list'),
+    url(r'^/(?P<pk>[0-9]+)/$', SongDetail.as_view(), name='song-detail'),
 )
 
 urlpatterns = patterns('',
