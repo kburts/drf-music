@@ -5,9 +5,9 @@ from .views import SongList, SongDetail
 from .views import UserList, UserCreate, UserDetail
 
 user_urls = patterns('',
-    url(r'^/register/$', UserCreate.as_view(), name='user-register'),
     url(r'^/$', UserList.as_view(), name='user-list'),
-    #url(r'^/(?P<username>[0-9a-zA-Z_-]+)/$', UserDetail.as_view(), name='user-detail'),
+    url(r'^/register/$', UserCreate.as_view(), name='user-register'),
+    url(r'^/(?P<username>[0-9a-zA-Z_-]+)/$', UserDetail.as_view(), name='user-detail'),
 )
 
 playlist_urls = patterns('',

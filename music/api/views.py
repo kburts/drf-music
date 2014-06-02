@@ -6,7 +6,7 @@ from rest_framework import permissions
 
 from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer, UserSerializer, UserCreateSerializer
-from .permissions import IsOwnerOrReadOnly
+from .permissions import IsOwnerOrReadOnly, IsOwnerOrAdminOrReadOnlySong
 
 ### PLAYLISTS ###
 class PlaylistList(generics.ListCreateAPIView):
@@ -34,6 +34,7 @@ class SongList(generics.ListCreateAPIView):
 class SongDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
+    permission_classes = (IsOwnerOrAdminOrReadOnlySong,)
 
 
 ### USERS ###
