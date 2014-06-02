@@ -72,6 +72,7 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
             Queue = $scope.queue.shift()
             $scope.play()
             return
+    return
 ]
 
 

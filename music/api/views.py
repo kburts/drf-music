@@ -20,6 +20,7 @@ class PlaylistList(generics.ListCreateAPIView):
 class PlaylistDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 ### SONGS ###

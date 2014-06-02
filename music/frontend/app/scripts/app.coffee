@@ -15,7 +15,8 @@ app.run ->
     firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-app.config ($routeProvider, $locationProvider) ->
+
+app.config ($routeProvider, $httpProvider) ->
   $routeProvider
     .when '/yo',
       templateUrl: 'views/main.html'
@@ -37,3 +38,5 @@ app.config ($routeProvider, $locationProvider) ->
 
     # use the HTML5 History API
     # $locationProvider.html5Mode(true);
+
+    return
