@@ -10,6 +10,7 @@ app = angular.module 'playlistApp', [
 
 app.run ->
     ## Boilerplate code that I've seen in everyone's version of this app.
+    ## Loads up the youtube API javascript as the first script on the doc
     tag = document.createElement('script');
     tag.src = "http://www.youtube.com/iframe_api";
     firstScriptTag = document.getElementsByTagName('script')[0];
