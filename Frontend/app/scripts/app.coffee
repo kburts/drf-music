@@ -34,8 +34,11 @@ app.config ($routeProvider, $httpProvider) ->
     .when '/songs',
       templateUrl: 'views/SongListView.html'
       controller: 'SongListCtrl'
+    .when '/auth',
+      templateUrl: 'views/AuthView.html'
+      controller: 'AuthCtrl'
     .otherwise
-      redirectTo: '/play/1'
+      redirectTo: '/'
 
     # use the HTML5 History API
     # $locationProvider.html5Mode(true);
