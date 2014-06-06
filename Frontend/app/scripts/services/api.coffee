@@ -19,12 +19,3 @@ app.factory 'Song', ['$resource', 'APIBase', ($resource, APIBase) ->
 app.factory 'SongList', ['$resource', 'APIBase', ($resource, APIBase) ->
     $resource APIBase + 'api/song\/'
 ]
-
-#app.factory 'UserRegister', ['$http', ($http) ->
-#    message = ''
-#    register: (username, password) ->
-##
-#
-#    login: (username, password) ->#
-#
-#]
