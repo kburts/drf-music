@@ -17,7 +17,8 @@ app.run ->
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-app.config ($routeProvider, $httpProvider) ->
+app.config ($routeProvider, $httpProvider) -> 
+  ## ngRoute URLS
   $routeProvider
     .when '/yo',
       templateUrl: 'views/main.html'
@@ -39,6 +40,8 @@ app.config ($routeProvider, $httpProvider) ->
       controller: 'AuthCtrl'
     .otherwise
       redirectTo: '/'
+
+
 
     # use the HTML5 History API
     # $locationProvider.html5Mode(true);

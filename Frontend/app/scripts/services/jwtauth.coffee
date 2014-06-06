@@ -1,8 +1,8 @@
 'use strict'
 
-app = angular.module('playlistApp')
+app = angular.module 'playlistApp'
 
-app.factory 'JWTAuth', ($rootScope, $q, $window) ->
+app.factory 'JWTAuth', ['$rootScope', '$q', '$window', ($rootScope, $q, $window) ->
     request: (config) ->
         config.headers = config.headers or {};
         if ($window.sessionStorage.token)
@@ -11,14 +11,19 @@ app.factory 'JWTAuth', ($rootScope, $q, $window) ->
             console.log('no session token')
         return config;
 
-#    response: (response) ->
-#        return response || $q.when(response)
-
     responseError: (response) ->
         if response.status is 401
             console.log('not authorized.') 
         return $q.reject(response);    
-        
+]
 
-app.config ($httpProvider) ->
-    $httpProvider.interceptors.push('JWTAuth')
+app.config ['$httpProvider', ($httpProvider) ->
+    #$httpProvider.interceptors.push('JWTAuth')
+    ## Remove CORS for cross domain ajax requests
+    ## Without this, you cannot send headers to other domain servers
+    ## (I think...)
+    $httpProvider.defaults.useXDomain = true
+    delete $httpProvider.defaults.headers.common['X-Requested-With']
+    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json'
+    $httpProvider.defaults.headers.post['Accept'] = 'application/json'
+]
