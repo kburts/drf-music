@@ -42,12 +42,15 @@ INSTALLED_APPS = (
     ## 3rd party apps ##
     'rest_framework',
     'corsheaders',
-    'silk',
+    #'silk',
+    ## Uncomment/install silk later for DB optimization
     ## My apps ##
     'api',
 )
 
 MIDDLEWARE_CLASSES = (
+    ## 3rd party Middleware ##
+    'corsheaders.middleware.CorsMiddleware',
     ## Django Middleware ##
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,9 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    ## 3rd party Middleware ##
-    'corsheaders.middleware.CorsMiddleware',
-    'silk.middleware.SilkyMiddleware',
+    # Silk middleware to be added when needed
 )
 CORS_ORIGIN_ALLOW_ALL = True
 

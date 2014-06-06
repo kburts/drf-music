@@ -6,9 +6,6 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
     $scope.message = ""
     $scope.loggedIn = true if sessionStorage.token 
 
-
-
-
     $scope.login = (user) ->
         $http.post(
             APIBase + 'api-token-auth/'

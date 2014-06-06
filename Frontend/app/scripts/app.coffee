@@ -29,8 +29,11 @@ app.config ($routeProvider, $httpProvider) ->
     .when '/play',
       templateUrl: 'views/PlaylistListView.html'
       controller: 'PlaylistListCtrl'
+    .when '/play/create',
+      templateUrl:'views/PlaylistFormView.html'
+      controller: 'PlaylistFormCtrl'
     .when '/play/:playlistId',
-      templateUrl: '/views/PlaylistView.html'
+      templateUrl: 'views/PlaylistView.html'
       controller: 'PlaylistCtrl'
     .when '/songs',
       templateUrl: 'views/SongListView.html'

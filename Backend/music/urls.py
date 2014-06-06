@@ -13,6 +13,3 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^$', TemplateView.as_view(template_name='basic.html'))
 )
-
-## Silk for speed/profiling pages
-urlpatterns += patterns('', url(r'^silk', include('silk.urls', namespace='silk')))
