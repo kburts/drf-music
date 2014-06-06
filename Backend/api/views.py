@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework import exceptions
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 
 from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer, UserSerializer, UserCreateSerializer
@@ -55,3 +59,14 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     #permission_classes = (permissions.IsAdminUser,)
     lookup_field = 'username'
+
+
+@api_view(['GET'])
+def CurrentUser(request):
+    user = request.user
+    if user.is_authenticated():
+        return Response({
+            'username': user.username
+        })
+    else:
+        raise exceptions.PermissionDenied

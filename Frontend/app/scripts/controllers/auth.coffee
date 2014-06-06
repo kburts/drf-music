@@ -38,6 +38,5 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
         .error (data, status, headers, config) -> 
             $scope.message = status + " - " + JSON.stringify(data)
 
-        return
     return
 ]

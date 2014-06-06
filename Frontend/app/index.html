@@ -54,18 +54,20 @@
             <div class="col-sm-5"><a href="/">Logo</a> - {{ "current song: " + currentsong.name }}</div>
             <div class="col-sm-2">&nbsp;</div>
             <div ng-controller="AuthCtrl" class="col-sm-5" style="text-align: right">
-              <div ng-show="loggedIn">
-
-              <p>Welcome! {{ username }}</p>
-
-              </div>
-              <div ng-hide="loggedIn">
-              <p class="bg-danger"> {{ message }} </p>
-              <input type="username" class="form-control" ng-model="user.username" placeholder="Username">
-              <input type="password" class="form-control" ng-model="user.password" placeholder="Password">
               
-              <button type="submit" class="btn btn-primary" ng-click="login(user)">Sign in</button>
-              <button type="submit" class="btn btn-success" ng-click="register(user)">Register</button>
+              <div ng-show="loggedIn">
+                <p>Welcome! {{ username }}</p>
+              </div>
+
+              <div ng-hide="loggedIn">
+              <button class="btn btn-primary" ng-click="loginform = !loginform">Login/Register</button>
+                <div class="authForm" ng-show="loginform">
+                  <p class="bg-danger"> {{ message }} </p>
+                  <input type="username" class="form-control" ng-model="user.username" placeholder="Username">
+                  <input type="password" class="form-control" ng-model="user.password" placeholder="Password"> 
+                <button type="submit" class="btn btn-primary" ng-click="login(user)">Sign in</button>
+                <button type="submit" class="btn btn-success" ng-click="register(user)">Register</button>
+                </div>
               </div>
             </div>
         </nav>

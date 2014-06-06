@@ -2,11 +2,12 @@ from django.conf.urls import patterns, url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from .views import PlaylistList, PlaylistDetail
 from .views import SongList, SongDetail
-from .views import UserList, UserCreate, UserDetail
+from .views import UserList, UserCreate, UserDetail, CurrentUser
 
 user_urls = patterns('',
     url(r'^/$', UserList.as_view(), name='user-list'),
     url(r'^/register/$', UserCreate.as_view(), name='user-register'),
+    url(r'^/me/$', CurrentUser, name='user-loggedin'),
     url(r'^/(?P<username>[0-9a-zA-Z_-]+)/$', UserDetail.as_view(), name='user-detail'),
 )
 
