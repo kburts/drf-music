@@ -18,3 +18,23 @@ app.factory 'Song', ['$resource', ($resource) ->
 app.factory 'SongList', ['$resource', ($resource) ->
     $resource 'http://localhost:8000/api/song\/'
 ]
+
+app.factory 'UserRegister', ['$http', ($http) ->
+    message = ''
+    register: (username, password) ->
+        $http(
+            method: 'POST'
+            url: ('http://localhost:8000/api/users/register/')
+            data: 
+                'username': username
+                'password': password
+        ).success (data, status, headers, config) ->
+            message = 'Success!'
+        .error (data, status, headers, config) -> 
+            message = data
+            console.log(message)
+
+    checkMessage: ->
+        return "message: " + message
+
+]

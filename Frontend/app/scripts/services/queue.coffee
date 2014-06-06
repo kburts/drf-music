@@ -27,4 +27,5 @@ app.factory 'Queue', ->
     setQueue: (new_queue) -> 
         queue = new_queue
         return
-    getQueue: -> queue
+    getQueue: -> 
+        queue

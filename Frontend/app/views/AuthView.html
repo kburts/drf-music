@@ -1,10 +1,11 @@
-    <form role="form">
+    <form role="form" name="authForm" novalidate>
         <div class="col-sm-6">
             <p class="bg-danger"> {{ "message" + message }} </p>
-            <input type="username" class="form-control" placeholder="Username">
-            <input type="password" class="form-control" placeholder="Password">
-            <button type="submit" class="btn btn-primary" ng-click="login">Sign in</button>
-            <button type="submit" class="btn btn-success" ng-click="register">Register</button>
+            <input type="username" class="form-control" ng-model="user.username" placeholder="Username">
+            <input type="password" class="form-control" ng-model="user.password" placeholder="Password">
+            
+            <button type="submit" class="btn btn-primary" ng-click="login(user)">Sign in</button>
+            <button type="submit" class="btn btn-success" ng-click="register(user)">Register</button>
         </div>
     </form>
 

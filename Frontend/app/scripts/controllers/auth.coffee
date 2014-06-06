@@ -2,13 +2,15 @@
 
 app = angular.module 'playlistApp'
 
-app.controller 'AuthCtrl', ['$scope', ($scope) ->
-    $scope.user = {}
+app.controller 'AuthCtrl', ['$scope', 'UserRegister', ($scope, UserRegister) ->
     $scope.message = ""
 
     $scope.login = ->
 
-    $scope.register = ->
+    $scope.register = (user) ->
+        UserRegister.register(user.username, user.password)
+        console.log(UserRegister.checkMessage())
 
-    
+        return
+    return
 ]
