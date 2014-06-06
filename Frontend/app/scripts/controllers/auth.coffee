@@ -28,7 +28,6 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
                 return
         return
 
-
     $scope.register = (user) ->
         $http(
             method: 'POST'
@@ -46,15 +45,10 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
             method: 'GET'
             url: (APIBase + 'api/users/me\/')
             headers:
-                'Content-Type': 'application/json'
                 'Authorization': 'JWT ' + $window.sessionStorage.token
-                'Accept': 'application/json'
         ).success (data, status, headers, config) ->
             $scope.username = (data.username or none)
-            console.log($scope.username)
         .error (data, status, headers, config) ->
-            console.log('error getting username!')
-            console.log(data)
 
     $scope.getUsername()
     return

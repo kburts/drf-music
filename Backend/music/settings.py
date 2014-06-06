@@ -32,19 +32,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    ## Django Apps ##
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    ## 3rd party apps ##
     'rest_framework',
     'corsheaders',
+    'silk',
+    ## My apps ##
     'api',
 )
 
 MIDDLEWARE_CLASSES = (
-    'corsheaders.middleware.CorsMiddleware',
+    ## Django Middleware ##
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,6 +56,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ## 3rd party Middleware ##
+    'corsheaders.middleware.CorsMiddleware',
+    'silk.middleware.SilkyMiddleware',
 )
 CORS_ORIGIN_ALLOW_ALL = True
 
