@@ -38,6 +38,9 @@ app.config ($routeProvider, $httpProvider) ->
     .when '/songs',
       templateUrl: 'scripts/song/SongListView.html'
       controller: 'SongListCtrl'
+    .when '/songs/create',
+      templateUrl: 'scripts/song/SongFormView.html'
+      controller: 'SongFormCtrl'
     .when '/auth',
       templateUrl: 'scripts/auth/AuthView.html'
       controller: 'AuthCtrl'
