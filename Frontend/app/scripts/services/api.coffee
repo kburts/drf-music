@@ -11,11 +11,13 @@ app.factory 'Playlist', ['$resource', 'APIBase', ($resource, APIBase) ->
             'query': {method: 'GET', isArray: false }
 ]
 
-app.factory 'PlaylistList', ['$resource', 'APIBase', ($resource, APIBase) ->
+
+app.factory 'PlaylistList', ['$resource', 'APIBase', 'JWTAuth', ($resource, APIBase, JWTAuth) ->
     $resource APIBase + 'api/playlist\/ ', {},
-        'query': {method: 'GET', isArray: true }
-        'save': {method: 'POST'}#, interceptor: 
-            #responseError: (data) -> console.log('error in interceptor', data)}
+        'query': {method: 'GET', isArray: true}
+        'save': 
+            method: 'POST'
+            interceptor: JWTAuth
 ]
 
 app.factory 'Song', ['$resource', 'APIBase', ($resource, APIBase) ->

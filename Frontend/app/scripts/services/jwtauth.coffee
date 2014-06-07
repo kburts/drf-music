@@ -4,12 +4,16 @@ app = angular.module 'api'
 
 app.factory 'JWTAuth', ['$rootScope', '$q', '$window', ($rootScope, $q, $window) ->
     request: (config) ->
-        config.headers = config.headers or {};
-        if ($window.sessionStorage.token)
-            config.headers.Authorization = 'JWT ' + $window.sessionStorage.token;
-        else
-            console.log('no session token')
-        return config;
+        if config.method is "POST"
+            console.log("request config!", config)
+            config.headers = config.headers or {};
+            if ($window.sessionStorage.token)
+                config.headers.Authorization = 'JWT ' + $window.sessionStorage.token;
+                console.log("Added token to headers", config.headers)
+            else
+                console.log('no session token')
+        return config
+
 
     responseError: (response) ->
         if response.status is 401
@@ -26,7 +30,7 @@ app.config ['$httpProvider', ($httpProvider) ->
     ## (I think...)
     $httpProvider.defaults.useXDomain = true
 
-    #delete $httpProvider.defaults.headers.common['X-Requested-With']
+    delete $httpProvider.defaults.headers.common['X-Requested-With']
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json'
     $httpProvider.defaults.headers.post['Accept'] = 'application/json'
 ]
