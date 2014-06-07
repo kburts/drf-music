@@ -3,8 +3,20 @@
 app = angular.module 'playlistApp'
 
 app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $http, $window, APIBase) ->
-    $scope.message = ""
-    $scope.loggedIn = true if sessionStorage.token 
+    $scope.getUsername = ->
+        $http(
+            method: 'GET'
+            url: (APIBase + 'api/users/me\/')
+            headers:
+                'Authorization': 'JWT ' + $window.sessionStorage.token
+        ).success (data, status, headers, config) ->
+            $scope.username = data.username
+            $scope.loggedIn = true
+            return
+        .error (data, status, headers, config) ->
+            $scope.loggedIn = false
+            delete($window.sessionStorage.token)
+            return
 
     $scope.login = (user) ->
         $http.post(
@@ -37,16 +49,8 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
         .error (data, status, headers, config) -> 
             $scope.message = status + " - " + JSON.stringify(data)
 
-    $scope.getUsername = ->
-        $http(
-            method: 'GET'
-            url: (APIBase + 'api/users/me\/')
-            headers:
-                'Authorization': 'JWT ' + $window.sessionStorage.token
-        ).success (data, status, headers, config) ->
-            $scope.username = (data.username or none)
-        .error (data, status, headers, config) ->
-
+    $scope.message = ""
+    $scope.loggedIn = $scope.getUsername()
     $scope.getUsername()
     return
 ]
