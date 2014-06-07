@@ -2,7 +2,7 @@
 
 app = angular.module 'playlistApp'
 
-app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $http, $window, APIBase) ->
+app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase', ($scope, $http, $window, $interval, APIBase) ->
     $scope.getUsername = ->
         $http(
             method: 'GET'
@@ -12,11 +12,17 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
         ).success (data, status, headers, config) ->
             $scope.username = data.username
             $scope.loggedIn = true
+            console.log("Successfully authenticated (for now...)")
             return
         .error (data, status, headers, config) ->
-            $scope.loggedIn = false
-            delete($window.sessionStorage.token)
+            $scope.logout()
             return
+
+    ## Check to see if the user is logged in (every interval seconds)
+    $interval ->
+        $scope.getUsername()
+        return
+    ,6000
 
     $scope.login = (user) ->
         $http.post(
@@ -37,6 +43,11 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
                 return
         return
 
+    $scope.logout = ->
+        $scope.loggedIn = false
+        $scope.username = undefined
+        delete($window.sessionStorage.token)        
+
     $scope.register = (user) ->
         $http(
             method: 'POST'
@@ -51,6 +62,5 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', 'APIBase', ($scope, $h
 
     $scope.message = ""
     $scope.loggedIn = $scope.getUsername()
-    $scope.getUsername()
     return
 ]
