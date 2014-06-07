@@ -21,25 +21,25 @@ app.config ($routeProvider, $httpProvider) ->
   ## ngRoute URLS
   $routeProvider
     .when '/yo',
-      templateUrl: 'views/main.html'
+      templateUrl: 'scripts/main/main.html'
       controller: 'MainCtrl'
     .when '/',
-      templateUrl: 'views/PlaylistListView.html'
+      templateUrl: 'scripts/playlist/PlaylistListView.html'
       controller: 'PlaylistListCtrl'
     .when '/play',
-      templateUrl: 'views/PlaylistListView.html'
+      templateUrl: 'scripts/playlist/PlaylistListView.html'
       controller: 'PlaylistListCtrl'
     .when '/play/create',
-      templateUrl:'views/PlaylistFormView.html'
+      templateUrl:'scripts/playlist/PlaylistFormView.html'
       controller: 'PlaylistFormCtrl'
     .when '/play/:playlistId',
-      templateUrl: 'views/PlaylistView.html'
+      templateUrl: 'scripts/playlist/PlaylistView.html'
       controller: 'PlaylistCtrl'
     .when '/songs',
-      templateUrl: 'views/SongListView.html'
+      templateUrl: 'scripts/song/SongListView.html'
       controller: 'SongListCtrl'
     .when '/auth',
-      templateUrl: 'views/AuthView.html'
+      templateUrl: 'scripts/auth/AuthView.html'
       controller: 'AuthCtrl'
     .otherwise
       redirectTo: '/'
