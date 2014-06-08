@@ -16,9 +16,13 @@ app.controller 'SongFormCtrl', ['$scope', '$log', '$window', 'User', 'Playlist',
 
     $scope.addToList = (url, name) ->
         ## Validation url should not be in list already and should have youtube.com in it
-        $log.log(song).name for song in $scope.songsToAdd
-            
-        $log.log('Adding to list', url, name)
-        $scope.songsToAdd.push({url: url, name: name})
-        $log.log($scope.songsToAdd)
+        canAdd = true
+        for _song in $scope.songsToAdd
+            if url is _song.url
+                canAdd = false
+                break
+            else
+        if canAdd is true
+            $scope.songsToAdd.push({url: url, name: name})
+            $log.log($scope.songsToAdd)
 ]
