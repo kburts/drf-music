@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn btn-success" ng-click="playAll()"><i class="fa fa-play"></i> Play all!</button>
+    </div>
+    <div class="col-sm-4">
+        <input type="text" class="form-inline" placeholder="Filter" ng-model="songFilter">
+    </div>
+    <div class="col-sm-4">
+        <button class="btn btn-success" ng-click="playShuffled()"><i class="fa fa-play"></i> Play shuffled</button>
+    </div>
+    <br>
+</div>
+<!-- Queue debugging
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        Queue: {{ queue }}
+    </div>
+</div>
+-->
+<div ng-repeat="song in songs.songs | filter:{name: songFilter}">
+    <div class="row">
+        <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="playSong()"></button></div>
+        <div class="col-sm-10"><p>{{ song.name }}</p></div>
+        <div class="col-sm-1"><button class="fa fa-chevron-circle-down fa-border" ng-click="showDetails = ! showDetails"></button></div>
+    </div>
+    <div class="row" ng-class="{ 'hidden': ! showDetails }">
+        <div class="playlist-details">
+            <div class="col-sm-3">
+                <p>Playlists used in:</p>
+            </div>
+            <div class="col-sm-7">
+                <p>Meta Data:</p>
+                <p>Song: {{ song.meta_name }}</p>
+                <p>Artist: {{ song.meta_artist }}</p>
+                <p>Genre: {{ song.meta_genre }}</p>
+                <p>Release Date: </p>
+            </div>
+            <div class="col-sm-1">
+                <a class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                <a class="btn btn-warning"><i class="fa fa-scissors"></i></a>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+        <div id="player">
+          <div id="placeholder"></div>
+        </div>
+    </div>
+
+</div>
