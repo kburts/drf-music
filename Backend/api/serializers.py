@@ -39,15 +39,22 @@ class PlaylistSerializer(serializers.ModelSerializer):
         fields = ('title', 'user', 'created', 'modified', 'songs', 'addSongs', 'public_edit', 'id')
 
 
+class PlaylistSerializerSimple(serializers.ModelSerializer):
+    """
+    Simple Serializer returns playlist name and id
+    """
+    class Meta:
+        model = Playlist
+        fields = ('title', 'id',)
+
+
 class UserSerializer(serializers.ModelSerializer):
-    playlists = serializers.HyperlinkedRelatedField(many=True, view_name='playlist-detail')
+    playlists = PlaylistSerializerSimple()
     songs = SongSerializerSimple()
 
     class Meta:
         model = User
         fields = ('username', 'playlists', 'songs',)
-
-
 
 
 
