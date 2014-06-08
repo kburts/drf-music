@@ -11,6 +11,7 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase'
                 'Authorization': 'JWT ' + $window.sessionStorage.token
         ).success (data, status, headers, config) ->
             $scope.username = data.username
+            $scope.loggedIn = true
             console.log("Successfully authenticated (for now...)")
             return
         .error (data, status, headers, config) ->
@@ -24,7 +25,7 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase'
             return
         else
             return
-    ,6000
+    ,60000
 
     $scope.login = (user) ->
         $http.post(

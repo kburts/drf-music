@@ -34,8 +34,8 @@ app.factory 'SongList', ['$resource', 'APIBase', ($resource, APIBase) ->
 ## User Endpoints
 app.factory 'User', ['$resource', 'APIBase', ($resource, APIBase) ->
     $resource APIBase + 'api/users/:id\/ ',
-    	id: '@id',
-    	isArray: false
+        id: '@id',
+            'query': method: 'GET', isArray: false
 
 ]
 

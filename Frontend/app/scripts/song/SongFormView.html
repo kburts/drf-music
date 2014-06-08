@@ -14,15 +14,13 @@
     <a class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
   </div>
 </div> -->
+
   <form class="form-horizontal" role="form">
     <div class="form-group">
       <label for="Name" class="col-sm-2 control-label">Playlist</label>
       <div class="col-sm-8">
-        <select ng-model="playlistName" class="form-control" id="Name" placeholder="Playlist Name">
-          <option value="1" title="option1">option1</option>
-          <option value="2" title="option2">option2</option>
-          <option value="3" title="option3">option3</option>
-          <option value="4" title="option4">option4</option>
+        <select ng-model="playlistName" ng-change="getPlaylistSongs(playlistName)" class="form-control" id="Name">
+          <option ng-repeat="playlist in currentuser.playlists">{{ playlist.title }}</option>
         </select>
         <a href="/#/play/create" class="btn btn-success"><i class="fa fa-plus"></i> Create New Playlist</a>        
       </div>
@@ -31,12 +29,7 @@
       <label for="Songs" class="col-sm-2 control-label">Songs</label>
       <div class="col-sm-8">
         <select multiple class="form-control" ng-model="playlistSongs" size="8">
-          <option value="1" title="song1">song1</option>
-          <option value="2" title="song2">song2</option>
-          <option value="3" title="song3">song3</option>
-          <option value="4" title="song4">song4</option>          
-          <option value="4" title="song5">song5</option>   
-          <option value="4" title="song6">song6</option>           
+          <option ng-repeat="song in songs.songs" selected>{{ song.name }}</option>   
         </select>
       </div>
     </div>
