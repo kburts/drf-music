@@ -4,7 +4,7 @@ app = angular.module 'api'
 
 app.factory 'JWTAuth', ['$rootScope', '$q', '$window', ($rootScope, $q, $window) ->
     request: (config) ->
-        if config.method is "POST"
+        if (config.method is "POST" or config.url is 'http://localhost:8000/api/users/me/ ')
             console.log("request config!", config)
             config.headers = config.headers or {};
             if ($window.sessionStorage.token)

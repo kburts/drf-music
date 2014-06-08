@@ -2,19 +2,23 @@
 
 app = angular.module 'playlistApp'
 
-app.controller 'SongFormCtrl', ['$scope', 'User', 'Playlist', ($scope, User, Playlist) ->
-    $scope.currentuser = User.query(id: 'kevin')
-    console.log($scope.currentuser)
+app.controller 'SongFormCtrl', ['$scope', '$log', '$window', 'User', 'Playlist', ($scope, $log, $window, User, Playlist) ->
+    $scope.currentuser = User.query(username: $window.sessionStorage.username)
+    $scope.songsToAdd = []
+    $scope.songsToRemove = []
 
     $scope.getPlaylistSongs = (playlist) ->
-        console.log("Getting Playlist Songs!", playlist)
-
         for _playlist in $scope.currentuser.playlists
             ## Quickly get the ID of the selected playlist
             if _playlist.title is playlist
-                console.log(_playlist.id)
                 playlistId = _playlist.id
-
         $scope.songs = Playlist.query(id: playlistId)
-        console.log($scope.songs)
+
+    $scope.addToList = (url, name) ->
+        ## Validation url should not be in list already and should have youtube.com in it
+        $log.log(song).name for song in $scope.songsToAdd
+            
+        $log.log('Adding to list', url, name)
+        $scope.songsToAdd.push({url: url, name: name})
+        $log.log($scope.songsToAdd)
 ]

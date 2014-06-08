@@ -2,7 +2,7 @@
 
 app = angular.module 'playlistApp'
 
-app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase', ($scope, $http, $window, $interval, APIBase) ->
+app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', '$location', 'APIBase', ($scope, $http, $window, $interval, $location, APIBase) ->
     $scope.getUsername = ->
         $http(
             method: 'GET'
@@ -34,6 +34,7 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase'
             headers={"Content-Type": "application/json"}
             ).success (data, status, headers, config) ->
                 $window.sessionStorage.token = data.token
+                $window.sessionStorage.username = user.username
                 $scope.message = 'Welcome'
                 console.log('assigned you a token!')
                 console.log(data.token)
@@ -42,7 +43,8 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase'
                 return
             .error (data, status, headers, config) ->
                 # Erase the token if the user fails to log in
-                delete $window.sessionStorage.token;
+                delete $window.sessionStorage.token
+                delete $window.sessionStorage.username
                 $scope.message = 'Error: Invalid user or password';
                 return
         return
@@ -50,7 +52,9 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', 'APIBase'
     $scope.logout = ->
         $scope.loggedIn = false
         $scope.username = undefined
-        delete($window.sessionStorage.token)        
+        delete $window.sessionStorage.token
+        delete $window.sessionStorage.username
+        $location.path("/#/");
 
     $scope.register = (user) ->
         $http(
