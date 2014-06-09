@@ -20,7 +20,7 @@ app.controller 'AuthCtrl', ['$scope', '$http', '$window', '$interval', '$locatio
 
     ## Check to see if the user is logged in (every interval seconds)
     $interval ->
-        if loggedIn = true
+        if $window.sessionStorage.token isnt undefined
             $scope.getUsername()
             return
         else
