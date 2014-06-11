@@ -1,11 +1,13 @@
 <div class="row">
-    <div class="col-sm-4">
-        <button class="btn btn-success" ng-click="playAll()"><i class="fa fa-play"></i> Play all!</button>
+    <div class="col-sm-5">
+        <p>{{ playlist.title }}</p>
+        <span style="font-weight: 300; font-style: italic;">{{ playlist.description }}</span>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <input type="text" class="form-inline" placeholder="Filter" ng-model="songFilter">
     </div>
     <div class="col-sm-4">
+        <button class="btn btn-success" ng-click="playAll()"><i class="fa fa-play"></i> Play all!</button>
         <button class="btn btn-success" ng-click="playShuffled()"><i class="fa fa-play"></i> Play shuffled</button>
     </div>
     <br>
@@ -17,7 +19,7 @@
     </div>
 </div>
 -->
-<div ng-repeat="song in songs.songs | filter:{name: songFilter}">
+<div ng-repeat="song in playlist.songs | filter:{name: songFilter}">
     <div class="row">
         <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="playSong()"></button></div>
         <div class="col-sm-10"><p>{{ song.name }}</p></div>

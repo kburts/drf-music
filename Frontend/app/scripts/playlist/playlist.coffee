@@ -5,7 +5,7 @@ app = angular.module('playlistApp')
 app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$routeParams', '$scope', '$log', (Playlist, YoutubePlayerService, Queue, $routeParams, $scope, $log) ->
     #Init
     $scope.hello = 'hello'
-    $scope.songs = Playlist.query(id: $routeParams.playlistId)
+    $scope.playlist = Playlist.query(id: $routeParams.playlistId)
     
     $scope.currentsong = {}
     $scope.queue = []
@@ -45,7 +45,7 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
 
     $scope.playAll = ->
         Queue.clearQueue()
-        for i in $scope.songs.songs
+        for i in $scope.playlist.songs
             Queue.addToEndQueue([i.name, i.yt_id])
 
         $scope.queue = Queue.getQueue()
@@ -55,7 +55,7 @@ app.controller 'PlaylistCtrl', ['Playlist', 'YoutubePlayerService', 'Queue', '$r
 
     $scope.playShuffled = ->
         Queue.clearQueue()
-        for i in $scope.songs.songs
+        for i in $scope.playlist.songs
             Queue.addToEndQueue([i.name, i.yt_id])
 
         Queue.shuffleQueue()

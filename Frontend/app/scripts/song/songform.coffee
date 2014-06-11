@@ -25,4 +25,7 @@ app.controller 'SongFormCtrl', ['$scope', '$log', '$window', 'User', 'Playlist',
         if canAdd is true
             $scope.songsToAdd.push({url: url, name: name})
             $log.log($scope.songsToAdd)
+
+    $scope.updatePlaylist = ->
+        
 ]
