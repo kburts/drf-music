@@ -63,6 +63,9 @@ class UserDetail(generics.RetrieveAPIView):
 
 @api_view(['GET'])
 def CurrentUser(request):
+    """
+    Used to return the current username, so that it does not need to be stored on the client.
+    """
     user = request.user
     if user.is_authenticated():
         return Response({

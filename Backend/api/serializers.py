@@ -6,12 +6,14 @@ from .models import Song, Playlist
 
 
 class SongSerializer(serializers.ModelSerializer):
+    """
+    Song Serializer
+    """
     playlist = serializers.PrimaryKeyRelatedField(many=True)
     added_by = serializers.Field(source='added_by.username')
 
     class Meta:
         model = Song
-        # Artist can be added later if needbe
         fields = ('name', 'url', 'playlist', 'added_by', 'meta_name', 'meta_artist', 'meta_genre', 'id')
 
 
@@ -28,7 +30,9 @@ class SongSerializerSimple(serializers.ModelSerializer):
 
 
 class PlaylistSerializer(serializers.ModelSerializer):
-    # Primany key related field for quick editing of songs in playlist
+    """
+    Playlist Serializer
+    """
     songs = SongSerializerSimple(required=False)
     addSongs = serializers.PrimaryKeyRelatedField('songs', many=True)
 
