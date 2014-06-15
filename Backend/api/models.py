@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 
 
 class Playlist(models.Model):
+    """
+    Playlist model
+    M2M to Song model
+    """
     title = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -19,16 +23,11 @@ class Playlist(models.Model):
         return self.title
 
 
-    #def save(self, *args, **kwargs):
-    #    ''' On save, update timestamps '''
-    #    # http://stackoverflow.com/questions/1737017/django-auto-now-and-auto-now-add
-    #    if not self.id:
-    #        self.created = datetime.datetime.today()
-    #    self.modified = datetime.datetime.today()
-    #    return super(Playlist, self).save(*args, **kwargs)
-
-
 class Song(models.Model):
+    """
+    Song model
+    M2M to Playlist Model
+    """
     playlist = models.ManyToManyField(Playlist, related_name='songs')
     # Youtube stuff
     name = models.CharField(max_length=200)
