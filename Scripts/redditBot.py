@@ -2,7 +2,10 @@
 Script to get data from reddit(specificly /r/listentothis or /r/music. It is supposed to be
 independent from the Django stuff.
 
-POSTs songs/playlist to the server.
+Creates a new playlist on server with:
+    title: Listentothis
+    description: date created and objective of playlist
+    songs: front page of /r/listentothis
 
 NOTE: Only works with YouTube. No soundcloud... yet
 """
@@ -37,9 +40,9 @@ def CollectRedditData():
 
 ## Send data to server
 def addSong(song, token, playlistID):
-    songUrl = SERVER + 'api/song/'
-    s = requests.put(
-        url = songUrl,
+    songAPIEndpoint = SERVER + 'api/song/'
+    s = requests.post(
+        url = songAPIEndpoint,
         data = ({
             'name': song.get('title'),
             'url': song.get('url'),
@@ -51,9 +54,24 @@ def addSong(song, token, playlistID):
     )
     print s
     print s.text
-    
+
+def createPlaylist(password, token):
+    playlistAPIEndpoint = SERVER + 'api/playlist/'
+    playlist = requests.post(
+        url = playlistAPIEndpoint,
+        data = ({
+            'title': '/r/listentothis',
+            'description': 'Auto-generated playlist'
+            }),
+        headers = ({
+            'Authorization': 'JWT %s' %token.json().get('token')
+        })
+    )
+    return playlist.json().get('id')
+  
 
 def UploadToServer(songs, password, user='listentothis'):
+    ## Get JWT Token
     jwtUrl = SERVER + 'api-token-auth/'
     token = requests.post(
         url = jwtUrl,
@@ -62,8 +80,12 @@ def UploadToServer(songs, password, user='listentothis'):
             'password': password
         })
     )
+    ## Create new playlist
+    playlist = createPlaylist(password, token)
+    
+    ## Upload new songs to server
     for song in songs:
-        addSong(song, token, '15')
+        addSong(song, token, playlist)
     
 
         
