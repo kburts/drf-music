@@ -3,6 +3,14 @@ var app;
 
 angular.module('playlistApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'api']);
 
+angular
+  .module('playlistApp')
+  .run(run);
+
+angular
+  .module('playlistApp')
+  .config(config)
+
 function run() {
   var firstScriptTag, tag;
   tag = document.createElement('script');
@@ -11,9 +19,6 @@ function run() {
   return firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 };
 
-angular
-  .module('playlistApp')
-  .run(run);
 
 function config($routeProvider, $httpProvider) {
   $routeProvider.when('/yo', {
@@ -45,15 +50,3 @@ function config($routeProvider, $httpProvider) {
   });
 };
 
-angular
-  .module('playlistApp')
-  .config(config)
-
-
-
-
-
-
-/*
-//@ sourceMappingURL=app.js.map
-*/
