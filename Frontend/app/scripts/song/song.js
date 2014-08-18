@@ -1,17 +1,9 @@
-(function() {
-  'use strict';
-  var app;
+'use strict';
 
-  app = angular.module('playlistApp');
+angular
+  .module('playlistApp')
+  .controller('SongListCtrl', SongListCtrl);
 
-  app.controller('SongListCtrl', [
-    'SongList', '$scope', function(SongList, $scope) {
-      return $scope.songs = SongList.query();
-    }
-  ]);
-
-}).call(this);
-
-/*
-//@ sourceMappingURL=song.js.map
-*/
+function SongListCtrl (SongList, $scope) {
+  return $scope.songs = SongList.query();
+};
