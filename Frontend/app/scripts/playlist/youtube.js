@@ -1,9 +1,11 @@
 'use strict';
+
 angular
   .module('playlistApp')
   .service('YoutubePlayerService', YoutubePlayerService);
 
-function outubePlayerService (Queue, $window, $rootScope, $log) {
+
+function YoutubePlayerService(Queue, $window, $rootScope, $log) {
   var events, onYoutubeReady, onYoutubeStateChange, queue, service, youtube;
   service = this;
   queue = [];

@@ -25,10 +25,10 @@ function config($routeProvider, $httpProvider) {
     templateUrl: 'scripts/main/main.html',
     controller: 'MainCtrl'
   }).when('/', {
-    templateUrl: 'scripts/playlist/PlaylistListView.html',
-    controller: 'PlaylistListCtrl'
+    redirectTo: '/play'
   }).when('/play', {
     templateUrl: 'scripts/playlist/PlaylistListView.html',
+    controllerAs: 'PlaylistList',
     controller: 'PlaylistListCtrl'
   }).when('/play/create', {
     templateUrl: 'scripts/playlist/PlaylistFormView.html',
@@ -45,6 +45,8 @@ function config($routeProvider, $httpProvider) {
   }).when('/auth', {
     templateUrl: 'scripts/auth/AuthView.html',
     controller: 'AuthCtrl'
+  }).when('/about', {
+    templateUrl: 'views/about.html'
   }).otherwise({
     redirectTo: '/'
   });

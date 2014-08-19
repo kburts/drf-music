@@ -81,5 +81,7 @@ function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $sco
 
 
 function PlaylistListCtrl (PlaylistList, $scope) {
-  return $scope.playlists = PlaylistList.query();
+  var vm = this;
+  vm.playlists = PlaylistList.query();
+  //$scope.playlists = PlaylistList.query();
 };
