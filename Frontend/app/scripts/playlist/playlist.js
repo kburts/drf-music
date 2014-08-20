@@ -31,15 +31,11 @@ function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $sco
   */
   $scope.playSong = function() {
     Queue.clearQueue();
-    //Queue.addToEndQueue([this.song.name, this.song.yt_id]);
     Queue.setQueue([this.song.name, this.song.yt_id]);
-    $scope.queue = Queue.getQueue();
-    $log.log(Queue.getQueue());
     $scope.play();
   };
   $scope.play = function() {
-    $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1]);
-    //YoutubePlayerService.launchPlayer($scope.queue[0][1], $scope.queue[0][0]);
+    $log.log("Queue set to:" + $scope.queue[0][0] + $scope.queue[0][1]);
   };
   $scope.playAll = function() {
     var i, _i, _len, _ref;
@@ -50,29 +46,11 @@ function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $sco
       Queue.addToEndQueue([i.name, i.yt_id]);
     }
     $scope.queue = Queue.getQueue();
-    $log.log($scope.queue);
-    $scope.play();
   };
   $scope.playShuffled = function() {
-    var i, _i, _len, _ref;
-    Queue.clearQueue();
-    _ref = $scope.playlist.songs;
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      i = _ref[_i];
-      Queue.addToEndQueue([i.name, i.yt_id]);
-    }
+    $scope.playAll();
     Queue.shuffleQueue();
     $scope.queue = Queue.getQueue();
-    $log.log($scope.queue);
-    $scope.play();
-  };
-  $scope.playNext = function() {
-    if ($scope.queue.length <= 2) {
-      $log.log("Playlist done!");
-    } else {
-      Queue = $scope.queue.shift();
-      $scope.play();
-    }
   };
 };
 
