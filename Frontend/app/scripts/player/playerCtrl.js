@@ -16,7 +16,7 @@ function PlayerCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope
   //$scope.queue = [];
   $scope.$on('event', function(event, data) {
     if (data === 'ended') {
-      $scope.playNext();
+      vm.playNext();
     }
   });
 
