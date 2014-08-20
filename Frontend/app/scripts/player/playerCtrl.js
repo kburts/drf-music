@@ -33,12 +33,12 @@ function PlayerCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope
     YoutubePlayerService.launchPlayer(vm.queue[0][1], vm.queue[0][0]);
   };
 
-  $scope.playNext = function() {
+  vm.playNext = function() {
     if (vm.queue.length <= 2) {
       $log.log("Playlist done!");
     } else {
-      Queue = vm.queue.shift();
-      $scope.play();
+      Queue.shiftQueue();
+      vm.playSong();
     }
   };
 };
