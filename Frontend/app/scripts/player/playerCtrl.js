@@ -12,7 +12,7 @@ function PlayerCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope
     vm.queue = Queue.queue;
   }
   Queue.registerObserverCallback(updateQueue);
-  vm.currentsong = {};
+  vm.currentSong = {};
   //$scope.queue = [];
   $scope.$on('event', function(event, data) {
     if (data === 'ended') {
@@ -31,6 +31,7 @@ function PlayerCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope
     $log.log('Playing song with playerCtrl');
     $log.log("Playing a song" + vm.queue[0][0] + vm.queue[0][1]);
     YoutubePlayerService.launchPlayer(vm.queue[0][1], vm.queue[0][0]);
+    vm.currentSong = vm.queue[0][0]
   };
 
   vm.playNext = function() {

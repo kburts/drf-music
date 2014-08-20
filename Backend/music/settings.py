@@ -86,7 +86,7 @@ REST_FRAMEWORK = {
 # djangorestframework-jwt settings
 import datetime
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=9000)
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=3)
 }
 
 
