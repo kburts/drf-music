@@ -10,32 +10,12 @@ angular
 
 
 function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope, $log) {
-  
   $scope.playlist = Playlist.query({
     id: $routeParams.playlistId
   });
-  /*
-  $scope.currentsong = {};
-  $scope.queue = [];
-  $scope.$on('event', function(event, data) {
-    if (data === 'ended') {
-      return $scope.playNext();
-    }
-  });
 
-  $scope.launch = function() {
-    $log.log('Launched PlaylistCtrl!!');
-    YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme");
-    return $scope.youtube = YoutubePlayerService.getYoutube();
-  };
-  */
   $scope.playSong = function() {
-    Queue.clearQueue();
     Queue.setQueue([this.song.name, this.song.yt_id]);
-    $scope.play();
-  };
-  $scope.play = function() {
-    $log.log("Queue set to:" + $scope.queue[0][0] + $scope.queue[0][1]);
   };
   $scope.playAll = function() {
     var i, _i, _len, _ref;

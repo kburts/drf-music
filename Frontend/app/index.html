@@ -27,43 +27,8 @@
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/play">Play</a></li>
           <li><a ng-href="#/songs">Songs</a></li>
-          <li><a ng-href="#/about">About</a></li>
-        </ul>
-        <h3 class="text-muted">Django-Angular Playlist</h3>
-      </div>
-    </div>
-
-<!--
-  <div ng-controller="UserCtrl">
-    <span></span>
-    <form ng-submit="submit()">
-      <input ng-model="user.username" type="text" name="user" placeholder="Username" />
-      <input ng-model="user.password" type="password" name="pass" placeholder="Password" />
-      <input type="submit" value="Login" />
-    </form>
-    <form ng-submit="testAuth()">
-      <input type="submit" value="POST" />
-    </form>
-  </div>
--->
-    <!-- Add your site or application content here -->
-    <div class="container">
-
-    <div class="row">
-        <nav>
-            <!-- Player Ctrl Stuff -->
-            <div class="col-sm-7" ng-controller="PlayerCtrl as Player">
-              <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="Player.playSong()"></button></div>
-              <div class="col-sm-1"><button class="fa fa-forward fa-border" ng-click="Player.playNext()"></button></div>
-              <div class="col-sm-10">
-                {{ Player.currentSong }}
-                {{ Player.queue }}
-              </div>
-
-            </div>
-
-            <!-- Authentication Stuff -->
-            <div ng-controller="AuthCtrl" class="col-sm-5" style="text-align: right">
+          <li>
+            <div ng-controller="AuthCtrl" class="col-sm-12" style="text-align: right">
               
               <div ng-show="loggedIn">
                 <p>Welcome! {{ username }} <button ng-click="logout()"class="btn btn-warning btn-sm">Logout</button></p>
@@ -80,10 +45,38 @@
                 </div>
               </div>
             </div>
+          </li>
+        </ul>
+        <h3 class="text-muted">Django-Angular Playlist</h3>
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+        <nav>
+            <!-- Player Ctrl Stuff -->
+            <div class="col-sm-12" ng-controller="PlayerCtrl as Player">
+              <div class="col-sm-2"><button class="fa fa-play fa-border" ng-click="Player.playSong()"></button>
+              <button class="fa fa-forward fa-border" ng-click="Player.playNext()"></button>
+            </div>
+              <div class="col-sm-4">
+                {{ Player.currentSong }}
+              </div>
+              <div class="col-sm-6">
+                <button class="fa fa-chevron-circle-down fa-border" ng-click="showQueue = ! showQueue">Show queue</button>
+                <div ng-class="{ 'hidden': ! showQueue }">
+                  <div ng-repeat="song in Player.queue">
+                    {{ song[0] }}
+                    <br><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Authentication Stuff -->
         </nav>
     </div>
 
-    
     <div class="container" id="main-body">
     <div class="container" ng-view=""></div>
 
