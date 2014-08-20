@@ -6,32 +6,50 @@ angular
 
 
 function Queue() {
-  var queue;
-  queue = [];
-  return {
-    clearQueue: function() {
-      queue = [];
-    },
-    addToEndQueue: function(song) {
-      queue.push(song);
-    },
-    addToStartQueue: function(song) {
-      queue.unshift(song);
-    },
-    shuffleQueue: function() {
-      var i, j, _i, _ref, _ref1, _results;
-      _results = [];
-      for (i = _i = _ref = queue.length - 1; _ref <= 1 ? _i <= 1 : _i >= 1; i = _ref <= 1 ? ++_i : --_i) {
-        j = Math.floor(Math.random() * (i + 1));
-        _results.push((_ref1 = [queue[j], queue[i]], queue[i] = _ref1[0], queue[j] = _ref1[1], _ref1));
-      }
-      return _results;
-    },
-    setQueue: function(new_queue) {
-      queue = new_queue;
-    },
-    getQueue: function() {
-      return queue;
-    }
+  var Factory = {};
+  var observerCallbacks = [];
+  Factory.queue = [];
+
+  Factory.registerObserverCallback = function(callback){
+    observerCallbacks.push(callback);
   };
+
+  //call this when you know 'foo' has been changed
+  var notifyObservers = function(){
+    angular.forEach(observerCallbacks, function(callback){
+      callback();
+    });
+  };
+
+  Factory.clearQueue = function() {
+    Factory.queue = [];
+    notifyObservers();
+  },
+  Factory.addToEndQueue = function(song) {
+    Factory.queue.push(song);
+    notifyObservers();
+  },
+  Factory.addToStartQueue = function(song) {
+    Factory.queue.unshift(song);
+    notifyObservers();
+  },
+  Factory.shuffleQueue = function() {
+    var i, j, _i, _ref, _ref1, _results;
+    _results = [];
+    for (i = _i = _ref = Factory.queue.length - 1; _ref <= 1 ? _i <= 1 : _i >= 1; i = _ref <= 1 ? ++_i : --_i) {
+      j = Math.floor(Math.random() * (i + 1));
+      _results.push((_ref1 = [Factory.queue[j], Factory.queue[i]], Factory.queue[i] = _ref1[0], Factory.queue[j] = _ref1[1], _ref1));
+    }
+    return _results;
+  },
+  Factory.setQueue = function(new_queue) {
+    Factory.queue = [];
+    Factory.queue.push(new_queue);
+    notifyObservers();
+  },
+  Factory.getQueue = function() {
+    return Factory.queue;
+  }
+
+  return Factory;
 };

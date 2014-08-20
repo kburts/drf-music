@@ -21,7 +21,7 @@
 -->
 <div ng-repeat="song in playlist.songs | filter:{name: songFilter}">
     <div class="row">
-        <div class="col-sm-1"><button class="fa fa-play fa-border" ng-click="playSong()"></button></div>
+        <div class="col-sm-1"><button class="fa fa-plus fa-border" ng-click="playSong()"></button></div>
         <div class="col-sm-10"><p>{{ song.name }}</p></div>
         <div class="col-sm-1"><button class="fa fa-chevron-circle-down fa-border" ng-click="showDetails = ! showDetails"></button></div>
     </div>
@@ -44,10 +44,6 @@
         </div>
     </div>
 </div>
-
-        <div id="player">
-          <div id="placeholder"></div>
-        </div>
     </div>
 
 </div>

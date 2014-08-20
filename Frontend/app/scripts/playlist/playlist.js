@@ -10,10 +10,11 @@ angular
 
 
 function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope, $log) {
-  $scope.hello = 'hello';
+  
   $scope.playlist = Playlist.query({
     id: $routeParams.playlistId
   });
+  /*
   $scope.currentsong = {};
   $scope.queue = [];
   $scope.$on('event', function(event, data) {
@@ -21,28 +22,24 @@ function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $sco
       return $scope.playNext();
     }
   });
+
   $scope.launch = function() {
+    $log.log('Launched PlaylistCtrl!!');
     YoutubePlayerService.launchPlayer('0vyuFj__YOs', "Elaina's Theme");
     return $scope.youtube = YoutubePlayerService.getYoutube();
   };
+  */
   $scope.playSong = function() {
     Queue.clearQueue();
-    Queue.addToEndQueue([this.song.name, this.song.yt_id]);
+    //Queue.addToEndQueue([this.song.name, this.song.yt_id]);
     Queue.setQueue([this.song.name, this.song.yt_id]);
     $scope.queue = Queue.getQueue();
     $log.log(Queue.getQueue());
     $scope.play();
   };
   $scope.play = function() {
-    if (typeof $scope.queue[0] === 'object') {
-      $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1]);
-      YoutubePlayerService.launchPlayer($scope.queue[0][1], $scope.queue[0][0]);
-      return $log.log("Playing song from array queue");
-    } else if (typeof $scope.queue[0] === 'string') {
-      $log.log("Playing a song" + $scope.queue[0] + $scope.queue[1]);
-      YoutubePlayerService.launchPlayer($scope.queue[1], $scope.queue[0]);
-      return $log.log("Playing song from single song queue");
-    }
+    $log.log("Playing a song" + $scope.queue[0][0] + $scope.queue[0][1]);
+    //YoutubePlayerService.launchPlayer($scope.queue[0][1], $scope.queue[0][0]);
   };
   $scope.playAll = function() {
     var i, _i, _len, _ref;
@@ -81,6 +78,7 @@ function PlaylistCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $sco
 
 
 function PlaylistListCtrl (PlaylistList, $scope) {
+  // Uses the controller as syntax.
   var vm = this;
   vm.playlists = PlaylistList.query();
   //$scope.playlists = PlaylistList.query();
