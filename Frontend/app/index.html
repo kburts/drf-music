@@ -79,6 +79,14 @@
         </nav>
     </div>
 
+    <div class="row">
+      <div class="col-sm-8" ng-controller="BreadcrumbsCtrl as Breadcrumbs">
+        <span ng-repeat="item in Breadcrumbs.breadcrumbs">
+          <a ng-href={{item.url}}>{{ item.name }}</a> / 
+        </span>
+      </div>
+    </div>
+
     <div class="container" id="main-body">
     <div class="container" ng-view=""></div>
 
@@ -142,6 +150,8 @@
         <script src="scripts/auth/auth.js"></script>
         
         <script src="scripts/player/playerCtrl.js"></script>
+
+        <script src="scripts/breadcrumbs/breadcrumbsCtrl.js"></script>
 
         <script src="scripts/playlist/playlist.js"></script>
         <script src="scripts/playlist/queue.js"></script>

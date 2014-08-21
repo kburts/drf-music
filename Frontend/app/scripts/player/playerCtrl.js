@@ -5,7 +5,7 @@ angular
   .controller('PlayerCtrl', PlayerCtrl);
 
 
-function PlayerCtrl (Playlist, YoutubePlayerService, Queue, $routeParams, $scope, $log) {
+function PlayerCtrl (YoutubePlayerService, Queue, $scope, $log) {
   var vm = this;
   vm.queue = [];
   var updateQueue = function() {
