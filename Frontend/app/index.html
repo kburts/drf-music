@@ -56,9 +56,11 @@
         <nav>
             <!-- Player Ctrl Stuff -->
             <div class="col-sm-12" ng-controller="PlayerCtrl as Player">
-              <div class="col-sm-2"><button class="fa fa-play fa-border" ng-click="Player.playSong()"></button>
-              <button class="fa fa-forward fa-border" ng-click="Player.playNext()"></button>
-            </div>
+              <div class="col-sm-2">
+                <button class="fa fa-play fa-border" ng-click="Player.play()"></button>
+                <button class="fa fa-forward fa-border" ng-click="Player.playNext()"></button>
+                <button class="fa fa-pause fa-border" ng-click="Player.pause()"></button>
+              </div>
               <div class="col-sm-4">
                 {{ Player.currentSong }}
               </div>

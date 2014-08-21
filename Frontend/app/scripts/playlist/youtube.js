@@ -25,25 +25,26 @@ function YoutubePlayerService(Queue, $window, $rootScope, $log) {
     youtube.ready = true;
     service.bindPlayer('placeholder');
     service.loadPlayer();
-    return $rootScope.$apply();
+    $rootScope.$apply();
   };
   onYoutubeReady = function(event) {
     $log.info("YouTube Player is ready");
     youtube.player.cueVideoById('0vyuFj__YOs');
     youtube.videoId = '0vyuFj__YOs';
-    return youtube.videoTitle = "Elaina's Theme";
+    youtube.videoTitle = "Elaina's Theme";
   };
   onYoutubeStateChange = function(event) {
     if (event.data === YT.PlayerState.PLAYING) {
-      $log.info("State: Playing!");
       youtube.state = 'playing';
       $rootScope.$broadcast('event', youtube.state);
-    }
-    if (event.data === YT.PlayerState.ENDED) {
+    } else if (event.data === YT.PlayerState.PAUSED) {
+      youtube.state = 'paused';
+      $rootScope.$broadcast('event', youtube.state);
+    } else if (event.data === YT.PlayerState.ENDED) {
       youtube.state = 'ended';
-      $log.info("Song ended, going to next one!");
       $rootScope.$broadcast('event', youtube.state);
     }
+    $log.info("State: " + youtube.state);
     $rootScope.$apply();
   };
   this.bindPlayer = function(elementId) {
@@ -79,6 +80,12 @@ function YoutubePlayerService(Queue, $window, $rootScope, $log) {
     youtube.videoTitle = title;
     return youtube;
   };
+  this.pausePlayer = function() {
+    youtube.player.pauseVideo();
+  }
+  this.resumePlayer = function() {
+    youtube.player.playVideo();
+  }
   this.getYoutube = function() {
     return youtube;
   };
