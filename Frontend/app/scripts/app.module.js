@@ -1,5 +1,4 @@
 'use strict';
-var app;
 
 angular.module('playlistApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'api']);
 
@@ -21,10 +20,7 @@ function run() {
 
 
 function config($routeProvider, $httpProvider) {
-  $routeProvider.when('/yo', {
-    templateUrl: 'scripts/main/main.html',
-    controller: 'MainCtrl'
-  }).when('/', {
+  $routeProvider.when('/', {
     redirectTo: '/play'
   }).when('/play', {
     templateUrl: 'scripts/playlist/PlaylistListView.html',

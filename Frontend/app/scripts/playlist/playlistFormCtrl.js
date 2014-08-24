@@ -2,7 +2,7 @@
 
 angular
   .module('playlistApp')
-  .controller('PlaylistFormCtrl');
+  .controller('PlaylistFormCtrl', PlaylistFormCtrl);
 
 function PlaylistFormCtrl ($scope, PlaylistList) {
   $scope.createPlaylist = function(name, description) {

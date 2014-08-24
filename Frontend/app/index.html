@@ -142,25 +142,27 @@
     <!-- Font-Awesome Glyphicons -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+        <script src="scripts/app.module.js"></script>
         
-        <script src="scripts/api/api.js"></script>
+        <script src="scripts/api.module.js"></script>
+
+        <script src="scripts/api/apiFactory.js"></script>
         <script src="scripts/api/jwtauth.js"></script>
 
-        <script src="scripts/auth/auth.js"></script>
+        <script src="scripts/auth/authCtrl.js"></script>
         
         <script src="scripts/player/playerCtrl.js"></script>
-        <script src="scripts/player/youtube.js"></script>
+        <script src="scripts/player/youtubeFactory.js"></script>
 
         <script src="scripts/queue/queue.js"></script>
 
         <script src="scripts/breadcrumbs/breadcrumbsCtrl.js"></script>
 
-        <script src="scripts/playlist/playlist.js"></script>
-        <script src="scripts/playlist/playlistform.js"></script>
+        <script src="scripts/playlist/playlistCtrl.js"></script>
+        <script src="scripts/playlist/playlistFormCtrl.js"></script>
 
-        <script src="scripts/song/song.js"></script>
-        <script src="scripts/song/songform.js"></script>
+        <script src="scripts/song/songCtrl.js"></script>
+        <script src="scripts/song/songFormCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

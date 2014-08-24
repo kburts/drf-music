@@ -2,10 +2,6 @@
 
 angular
   .module('api')
-  .config(config)
-
-angular
-  .module('api')
   .factory('JWTAuth', JWTAuth);
 
 function JWTAuth ($rootScope, $q, $window) {
@@ -32,13 +28,4 @@ function JWTAuth ($rootScope, $q, $window) {
       return $q.reject(response);
     }
   };
-};
-
-
-function config($httpProvider) {
-  $httpProvider.interceptors.push('JWTAuth');
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
-  return $httpProvider.defaults.headers.post['Accept'] = 'application/json';
 };

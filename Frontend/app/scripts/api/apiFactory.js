@@ -1,11 +1,5 @@
 'use strict';
 
-angular.module('api', ['ngResource']);
-
-angular
-  .module('api')
-  .constant('APIBase', 'http://localhost:8000/');
-
 angular
   .module('api')
   .factory('Playlist', Playlist)
