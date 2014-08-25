@@ -20,9 +20,15 @@ function run() {
 
 
 function config($routeProvider, $httpProvider) {
-  $routeProvider.when('/', {
+  $routeProvider
+  // Static URLs
+  .when('/', {
     redirectTo: '/play'
-  }).when('/play', {
+  }).when('/about', {
+    templateUrl: 'views/about.html'
+  })
+  // Playlist URLs
+  .when('/play', {
     templateUrl: 'scripts/playlist/PlaylistListView.html',
     controllerAs: 'PlaylistList',
     controller: 'PlaylistListCtrl'
@@ -32,18 +38,22 @@ function config($routeProvider, $httpProvider) {
   }).when('/play/:playlistId', {
     templateUrl: 'scripts/playlist/PlaylistView.html',
     controller: 'PlaylistCtrl'
-  }).when('/songs', {
+  })
+  // Song URLs
+  .when('/songs', {
     templateUrl: 'scripts/song/SongListView.html',
     controller: 'SongListCtrl'
   }).when('/songs/create', {
     templateUrl: 'scripts/song/SongFormView.html',
     controller: 'SongFormCtrl'
-  }).when('/auth', {
+  })
+  // Auth & misc API URLs
+  .when('/auth', {
     templateUrl: 'scripts/auth/AuthView.html',
     controller: 'AuthCtrl'
-  }).when('/about', {
-    templateUrl: 'views/about.html'
-  }).otherwise({
+  })
+  // Otherwise
+  .otherwise({
     redirectTo: '/'
   });
 };

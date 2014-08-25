@@ -24,7 +24,7 @@ function AuthCtrl($scope, $http, $window, $interval, $location, APIBase) {
     if ($window.sessionStorage.token !== void 0) {
       $scope.getUsername();
     } else {
-
+      $scope.logout();
     }
   }, 60000);
   $scope.login = function(user) {
@@ -53,7 +53,7 @@ function AuthCtrl($scope, $http, $window, $interval, $location, APIBase) {
     $scope.username = void 0;
     delete $window.sessionStorage.token;
     delete $window.sessionStorage.username;
-    return $location.path("/#/");
+    //$location.path("/#/");
   };
   $scope.register = function(user) {
     return $http({
