@@ -40,12 +40,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ## 3rd party apps ##
+    'django_extensions',
     'rest_framework',
     'corsheaders',
     #'silk',
     ## Uncomment/install silk later for DB optimization
     ## My apps ##
     'api',
+    'youtube_tasks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -123,10 +125,16 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+### Celery Settings ###
+BROKER_TRANSPORT = 'amqplib'
+
+BROKER_URL = 'amqp://'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_RESULT_BACKEND = 'amqp'
+CELERY_TASK_RESULT_EXPIRES = 14400
