@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework import generics
-from rest_framework import viewsets
+#from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import exceptions
 from rest_framework.decorators import api_view
@@ -11,6 +13,7 @@ from rest_framework.response import Response
 from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer, UserSerializer, UserCreateSerializer
 from .permissions import IsOwnerOrReadOnly, IsOwnerOrAdminOrReadOnlySong
+from .tasks import task
 
 ### PLAYLISTS ###
 class PlaylistList(generics.ListCreateAPIView):
@@ -40,6 +43,15 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SongSerializer
     permission_classes = (IsOwnerOrAdminOrReadOnlySong,)
 
+
+### PLAYLISTS AND USERS ###
+class CreatePlaylistFromYoutube(APIView):
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    def post(self, request, format=None):
+        task.delay()
+        create_playlist_from_yt.delay()
+        print request.DATA
+        return Response("Yello!")
 
 ### USERS ###
 class UserList(generics.ListAPIView):

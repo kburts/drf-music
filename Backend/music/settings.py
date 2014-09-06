@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     ## Uncomment/install silk later for DB optimization
     ## My apps ##
     'api',
-    'youtube_tasks',
 )
 
 MIDDLEWARE_CLASSES = (

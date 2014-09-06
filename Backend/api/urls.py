@@ -2,6 +2,7 @@ from django.conf.urls import patterns, url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from .views import PlaylistList, PlaylistDetail
 from .views import SongList, SongDetail
+from .views import CreatePlaylistFromYoutube
 from .views import UserList, UserCreate, UserDetail, CurrentUser
 
 user_urls = patterns('',
@@ -21,10 +22,15 @@ song_urls = patterns('',
     url(r'^/(?P<pk>[0-9]+)/$', SongDetail.as_view(), name='song-detail'),
 )
 
+youtube_urls = patterns('',
+    url(r'^/create/$', CreatePlaylistFromYoutube.as_view(), name='create-from-youtube'),
+)
+
 urlpatterns = patterns('',
     url(r'users', include(user_urls)),
     url(r'playlist', include(playlist_urls)),
     url(r'song', include(song_urls)),
+    url(r'youtube', include(youtube_urls)),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)

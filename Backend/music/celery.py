@@ -7,7 +7,7 @@ from celery import Celery
 from django.conf import settings
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'music.settings')
-#django.setup() # Required for django 1.7+
+django.setup() # Required for django 1.7+
 
 app = Celery('tasks')
 
