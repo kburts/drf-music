@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer, UserSerializer, UserCreateSerializer
 from .permissions import IsOwnerOrReadOnly, IsOwnerOrAdminOrReadOnlySong
-from .tasks import task
+from .tasks import task, create_playlist_from_yt
 
 ### PLAYLISTS ###
 class PlaylistList(generics.ListCreateAPIView):
@@ -46,11 +46,12 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
 
 ### PLAYLISTS AND USERS ###
 class CreatePlaylistFromYoutube(APIView):
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def post(self, request, format=None):
-        task.delay()
-        create_playlist_from_yt.delay()
-        print request.DATA
+        #task.delay()
+        create_playlist_from_yt.delay(request.DATA['url'], request.user)
+        #print request.DATA
+        #print request.user
         return Response("Yello!")
 
 ### USERS ###
