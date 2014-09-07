@@ -18,6 +18,9 @@ def create_playlist_from_yt(url, user):
     url: youtube playlist url, examples:
         https://www.youtube.com/watch?v=PpJVIhidBXM&index=15&list=PLXNnxXrfrLitw1tTuUFigZhY4C2FZhvLe
         https://www.youtube.com/watch?v=k7Z7USWo2Lk&list=PLXNnxXrfrLitw1tTuUFigZhY4C2FZhvLe&index=18
+    user: username (required)
+    title: title of the playlist (default title from youtube)
+    description: description of playlist (default auto-generated playlist from a youtube playlist url.)
     """
     playlist_id = re.search('list=\w+', url)
     playlist_id = playlist_id.group()[5:]
