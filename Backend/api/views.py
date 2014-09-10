@@ -48,10 +48,7 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
 class CreatePlaylistFromYoutube(APIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def post(self, request, format=None):
-        #task.delay()
         create_playlist_from_yt.delay(request.DATA['url'], request.user)
-        #print request.DATA
-        #print request.user
         return Response("Yello!")
 
 ### USERS ###

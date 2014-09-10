@@ -22,7 +22,7 @@ def create_playlist_from_yt(url, user):
     title: title of the playlist (default title from youtube)
     description: description of playlist (default auto-generated playlist from a youtube playlist url.)
     """
-    playlist_id = re.search('list=\w+', url)
+    playlist_id = re.search('list=[\w_-]+', url) # \w, _ or -
     playlist_id = playlist_id.group()[5:]
 
     if playlist_id is None:
@@ -32,6 +32,7 @@ def create_playlist_from_yt(url, user):
     # Make youtube api request
     api_key = "AIzaSyBvdmvgZzy3N59lM4pp_0L2h8u5cPD17ro"
     data = get_videos_from_playlist(playlist_id, api_key)
+    songs_to_add = []
 
     playlist_title = requests.get((
         "https://www.googleapis.com/youtube/v3/playlists?part=snippet"
@@ -45,13 +46,15 @@ def create_playlist_from_yt(url, user):
         user = user)
     playlist.save()
     for item in data:
-        song = Song(
+        s = Song(
             name = item[0],
             url = "https://www.youtube.com/watch?v=%s" %item[1],
             added_by = user
         )
-        song.save()
-        playlist.songs.add(song)
+        s.save()
+        songs_to_add.append(s)
+
+    playlist.songs.add(*songs_to_add)
     return playlist.id
 
 
@@ -74,7 +77,6 @@ def get_videos_from_playlist(playlist_id, api_key):
             "&key={2}"
         ).format(playlist_id, page_token, api_key)
         data = requests.get(url).json()
-
 
         for item in data['items']:
             videos.append((item['snippet']['title'], item['snippet']['resourceId']['videoId']))
