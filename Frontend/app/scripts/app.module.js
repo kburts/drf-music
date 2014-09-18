@@ -19,7 +19,7 @@ function run() {
 };
 
 
-function config($routeProvider, $httpProvider) {
+function config($routeProvider) {
   $routeProvider
   // Static URLs
   .when('/', {
@@ -56,5 +56,7 @@ function config($routeProvider, $httpProvider) {
   .otherwise({
     redirectTo: '/'
   });
+
+  //$resourceProvider.defaults.stripTrailingSlashes = false;
 };
 

@@ -17,7 +17,7 @@ angular
   .factory('UserCurrent', UserCurrent);
 
 function Playlist ($resource, APIBase) {
-  return $resource(APIBase + 'api/playlist/:id\/ ', {
+  return $resource(APIBase + 'api/playlist/:id/ ', {
     id: '@id'
   }, {
     'query': {
@@ -28,7 +28,7 @@ function Playlist ($resource, APIBase) {
 };
 
 function PlaylistList ($resource, APIBase, JWTAuth) {
-  return $resource(APIBase + 'api/playlist\/ ', {}, {
+  return $resource(APIBase + 'api/playlist/ ', {}, {
     'query': {
       method: 'GET',
       isArray: true
@@ -40,18 +40,18 @@ function PlaylistList ($resource, APIBase, JWTAuth) {
 };
 
 function Song ($resource, APIBase) {
-  return $resource(APIBase + 'api/song/:id\/ ', {
+  return $resource(APIBase + 'api/song/:id/ ', {
     id: '@id'
   });
 };
 
 function SongList ($resource, APIBase) {
-  return $resource(APIBase + 'api/song\/ ');
+  return $resource(APIBase + 'api/song/ ');
 };
 
 
 function User($resource, APIBase) {
-  return $resource(APIBase + 'api/users/:username\/ ', {
+  return $resource(APIBase + 'api/users/:username/ ', {
     username: '@username'
   }, {
     'query': {
@@ -63,12 +63,12 @@ function User($resource, APIBase) {
 
 
 function UserList ($resource, APIBase) {
-  return $resource(APIBase + 'api/users\/ ');
+  return $resource(APIBase + 'api/users/ ');
 };
 
 
 function UserCurrent ($resource, APIBase) {
-  return $resource(APIBase + 'api/users/me\/ ', {}, {
+  return $resource(APIBase + 'api/users/me/ ', {}, {
     'query': {
       method: 'GET'
     }
