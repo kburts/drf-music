@@ -56,7 +56,5 @@ function config($routeProvider) {
   .otherwise({
     redirectTo: '/'
   });
-
-  //$resourceProvider.defaults.stripTrailingSlashes = false;
 };
 

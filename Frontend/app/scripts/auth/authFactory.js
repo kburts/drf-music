@@ -12,9 +12,10 @@ function AuthFactory(APIBase, $rootScope, $http) {
 
   Factory.login = function(username, password) {
     var data, headers;
-    $http.post(APIBase + 'api-token-auth/', data = {
-      'username': username,
-      'password': password
+    $http.post(APIBase + 'api-token-auth/', 
+      data = {
+        'username': username,
+        'password': password
     }, headers = {
       "Content-Type": "application/json"
     }).success(function(data, status, headers, config) {
@@ -30,6 +31,20 @@ function AuthFactory(APIBase, $rootScope, $http) {
   Factory.logout = function() {
     delete sessionStorage.token;
     delete sessionStorage.username;
+  }
+
+  Factory.register = function(username, password) {
+    $http.post(APIBase + 'api/users/register/',
+      data = {
+        'username': user.username,
+        'password': user.password
+      }, headers = {
+        "Content-Type": "application/json"   
+    }).success(function(data, status, headers, config) {
+      return $scope.message = status + "- Success! Login!";
+    }).error(function(data, status, headers, config) {
+      return $scope.message = status + " - " + JSON.stringify(data);
+    });
   }
 
   return Factory;
